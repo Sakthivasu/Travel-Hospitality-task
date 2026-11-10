@@ -1,0 +1,2154 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+
+    <meta name="description" content="Discover premium VoyageGo holiday packages. Explore adventure trips, family holidays, honeymoon escapes and luxury travel experiences.">
+
+    <title>Holiday Packages | VoyageGo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+
+            Voyage<span class="text-primary">Go</span>
+
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="tourist.html">Destinations</a>
+
+            <a href="packages.html" class="active">Packages</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="nav-utility" data-location-trigger>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <span data-current-city>Chennai</span>
+
+            </button>
+
+            <button class="nav-utility" data-language-trigger>
+
+                <i class="fa-solid fa-globe"></i>
+
+                <span data-language-current>EN</span>
+
+            </button>
+
+            <a href="login.html"
+               class="btn btn-outline btn-sm desktop-auth">
+
+                Login
+
+            </a>
+
+            <a href="booking.html"
+               class="btn btn-primary btn-sm desktop-auth">
+
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                Book Now
+                <span data-booking-count>0</span>
+
+            </a>
+
+            <button class="mobile-toggle"
+                    id="mobile-toggle"
+                    aria-label="Open navigation"
+                    aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<aside class="mobile-drawer"
+       id="mobile-drawer"
+       aria-hidden="true">
+
+    <div class="drawer-header">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+
+            Voyage<span class="text-primary">Go</span>
+
+        </a>
+
+        <button class="drawer-close"
+                id="drawer-close"
+                aria-label="Close navigation">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <nav class="drawer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="tourist.html">Destinations</a>
+
+        <a href="packages.html" class="active">Packages</a>
+
+        <a href="about.html">About Us</a>
+
+        <a href="contact.html">Contact Us</a>
+
+        <a href="booking.html">My Booking</a>
+
+        <a href="dashboard.html">My Dashboard</a>
+
+    </nav>
+
+    <div class="drawer-actions">
+
+        <button class="btn btn-outline btn-block"
+                data-location-trigger>
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <span data-current-city>Chennai</span>
+
+        </button>
+
+        <button class="btn btn-outline btn-block"
+                data-language-trigger>
+
+            <i class="fa-solid fa-globe"></i>
+
+            Change Language
+
+        </button>
+
+        <a href="login.html"
+           class="btn btn-primary btn-block">
+
+            Login / Sign Up
+
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     PAGE BANNER
+===================================================== -->
+
+<section class="page-banner">
+
+    <div class="container">
+
+        <span class="eyebrow">
+
+            <i class="fa-solid fa-suitcase-rolling"></i>
+
+            Handpicked Travel Experiences
+
+        </span>
+
+        <h1>Find Your Perfect Holiday</h1>
+
+        <p>
+
+            Beautiful destinations, thoughtfully planned
+            itineraries and unforgettable travel experiences.
+
+        </p>
+
+        <div class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <i class="fa-solid fa-chevron-right"
+               style="font-size:10px;margin:0 8px;"></i>
+
+            <span>Packages</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PACKAGE INTRODUCTION
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Explore Our Collection</span>
+
+            <h2>Travel Packages Designed Around You</h2>
+
+            <p>
+
+                Whether you are planning a romantic escape,
+                a family holiday or an adventurous getaway,
+                discover a package that matches your travel style.
+
+            </p>
+
+        </div>
+
+
+        <!-- PACKAGE SEARCH -->
+
+        <div class="form-card reveal">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label for="package-search">
+
+                        Search Holiday Packages
+
+                    </label>
+
+                    <div style="position:relative;">
+
+                        <i class="fa-solid fa-magnifying-glass text-primary"
+                           style="position:absolute;left:15px;top:17px;"></i>
+
+                        <input
+                            type="search"
+                            id="package-search"
+                            placeholder="Search Bali, honeymoon, adventure..."
+                            style="padding-left:43px;"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-top:18px;">
+
+                <span class="text-muted" style="font-size:12px;">
+
+                    <i class="fa-solid fa-circle-info text-primary"></i>
+
+                    Find a package for your next journey.
+
+                </span>
+
+                <button type="button"
+                        class="btn btn-outline btn-sm"
+                        id="clear-package-search">
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    Clear Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PACKAGE CATEGORY FILTERS
+===================================================== -->
+
+<section class="section section-light"
+         style="padding-top:50px;">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Choose Your Experience</span>
+
+            <h2>Explore Packages by Travel Style</h2>
+
+            <p>
+
+                Choose the kind of experience you want
+                and discover your next perfect holiday.
+
+            </p>
+
+        </div>
+
+
+        <div class="filter-bar reveal">
+
+            <button class="filter-btn active"
+                    data-package-filter="all">
+
+                All Packages
+
+            </button>
+
+            <button class="filter-btn"
+                    data-package-filter="adventure">
+
+                <i class="fa-solid fa-person-hiking"></i>
+
+                Adventure
+
+            </button>
+
+            <button class="filter-btn"
+                    data-package-filter="family">
+
+                <i class="fa-solid fa-people-group"></i>
+
+                Family
+
+            </button>
+
+            <button class="filter-btn"
+                    data-package-filter="honeymoon">
+
+                <i class="fa-solid fa-heart"></i>
+
+                Honeymoon
+
+            </button>
+
+            <button class="filter-btn"
+                    data-package-filter="luxury">
+
+                <i class="fa-solid fa-gem"></i>
+
+                Luxury
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             PACKAGE GRID
+        ================================================= -->
+
+        <div class="package-grid" id="package-grid">
+
+
+            <!-- PACKAGE 1: BALI -->
+
+            <article class="package-card reveal"
+                     data-package-category="adventure"
+                     data-package-name="bali tropical escape"
+                     data-package-search="bali indonesia adventure beach island tropical">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp"
+                        alt="Bali tropical holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Best Seller
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            5 Days / 4 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Bali Tropical Escape</h3>
+
+                    <p>
+
+                        Discover tropical beaches, beautiful
+                        temples, rice terraces and exciting
+                        island adventures.
+
+                    </p>
+
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-utensils"></i>
+                            Breakfast
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Transfers
+                        </span>
+
+                    </div>
+
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹35,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="bali-package"
+                                data-title="Bali Tropical Escape"
+                                data-price="35999"
+                                data-type="Holiday Package"
+                                data-image="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="bali-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="bali-itinerary"
+                         hidden>
+
+                        <h4>5-Day Bali Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and hotel check-in</li>
+                            <li>Day 2 – Ubud and rice terrace exploration</li>
+                            <li>Day 3 – Waterfalls and temple visits</li>
+                            <li>Day 4 – Beach and island experience</li>
+                            <li>Day 5 – Breakfast and departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 2: MALDIVES -->
+
+            <article class="package-card reveal"
+                     data-package-category="honeymoon luxury"
+                     data-package-name="maldives luxury retreat"
+                     data-package-search="maldives honeymoon luxury beach romantic island">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp"
+                        alt="Maldives luxury resort"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Premium Escape
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            4 Days / 3 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            5.0
+                        </span>
+
+                    </div>
+
+                    <h3>Maldives Luxury Retreat</h3>
+
+                    <p>
+
+                        Experience overwater villas, crystal-clear
+                        oceans and private island relaxation.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Resort Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-utensils"></i>
+                            Meals
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-ship"></i>
+                            Transfers
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹74,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="maldives-package"
+                                data-title="Maldives Luxury Retreat"
+                                data-price="74999"
+                                data-type="Holiday Package"
+                                data-image="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="maldives-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="maldives-itinerary"
+                         hidden>
+
+                        <h4>4-Day Maldives Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and resort check-in</li>
+                            <li>Day 2 – Snorkelling and ocean activities</li>
+                            <li>Day 3 – Private beach and relaxation</li>
+                            <li>Day 4 – Breakfast and departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 3: PARIS -->
+
+            <article class="package-card reveal"
+                     data-package-category="honeymoon"
+                     data-package-name="paris romantic journey"
+                     data-package-search="paris france honeymoon romantic city europe">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp"
+                        alt="Paris romantic city holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Romantic Choice
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            6 Days / 5 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.8
+                        </span>
+
+                    </div>
+
+                    <h3>Paris Romantic Journey</h3>
+
+                    <p>
+
+                        Discover the charm of Paris with
+                        iconic landmarks, beautiful streets
+                        and memorable experiences.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-bus"></i>
+                            City Tours
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-camera"></i>
+                            Sightseeing
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹59,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="paris-package"
+                                data-title="Paris Romantic Journey"
+                                data-price="59999"
+                                data-type="Holiday Package"
+                                data-image="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="paris-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="paris-itinerary"
+                         hidden>
+
+                        <h4>6-Day Paris Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and city hotel check-in</li>
+                            <li>Day 2 – Eiffel Tower and Seine experience</li>
+                            <li>Day 3 – Louvre Museum and city exploration</li>
+                            <li>Day 4 – Palace of Versailles excursion</li>
+                            <li>Day 5 – Shopping and local experiences</li>
+                            <li>Day 6 – Departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 4: SWITZERLAND -->
+
+            <article class="package-card reveal"
+                     data-package-category="adventure luxury"
+                     data-package-name="switzerland alpine adventure"
+                     data-package-search="switzerland mountain adventure snow luxury europe">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/lightscape-LtnPejWDSAY-unsplash.webp"
+                        alt="Swiss Alps holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Adventure
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            7 Days / 6 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Swiss Alpine Adventure</h3>
+
+                    <p>
+
+                        Explore the Swiss Alps, scenic train
+                        routes, mountain villages and beautiful lakes.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-train"></i>
+                            Train Travel
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-mountain"></i>
+                            Excursions
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹89,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="switzerland-package"
+                                data-title="Swiss Alpine Adventure"
+                                data-price="89999"
+                                data-type="Holiday Package"
+                                data-image="img/lightscape-LtnPejWDSAY-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="swiss-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="swiss-itinerary"
+                         hidden>
+
+                        <h4>7-Day Switzerland Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival in Zurich</li>
+                            <li>Day 2 – Lucerne sightseeing</li>
+                            <li>Day 3 – Interlaken exploration</li>
+                            <li>Day 4 – Jungfrau mountain excursion</li>
+                            <li>Day 5 – Scenic train journey</li>
+                            <li>Day 6 – Swiss village exploration</li>
+                            <li>Day 7 – Departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 5: KERALA -->
+
+            <article class="package-card reveal"
+                     data-package-category="family"
+                     data-package-name="kerala nature escape"
+                     data-package-search="kerala india family nature backwaters hills">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/luca-bravo-O453M2Liufs-unsplash.webp"
+                        alt="Kerala family holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Family Favourite
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            5 Days / 4 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Kerala Nature Escape</h3>
+
+                    <p>
+
+                        Enjoy peaceful backwaters, scenic
+                        hill stations and beautiful natural landscapes.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-utensils"></i>
+                            Breakfast
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Transport
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹19,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="kerala-package"
+                                data-title="Kerala Nature Escape"
+                                data-price="19999"
+                                data-type="Holiday Package"
+                                data-image="img/luca-bravo-O453M2Liufs-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="kerala-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="kerala-itinerary"
+                         hidden>
+
+                        <h4>5-Day Kerala Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and Munnar transfer</li>
+                            <li>Day 2 – Munnar tea garden sightseeing</li>
+                            <li>Day 3 – Thekkady nature exploration</li>
+                            <li>Day 4 – Alleppey backwater experience</li>
+                            <li>Day 5 – Departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 6: DUBAI -->
+
+            <article class="package-card reveal"
+                     data-package-category="luxury family"
+                     data-package-name="dubai luxury experience"
+                     data-package-search="dubai uae luxury family desert shopping city">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/nature-photographer-29ezCWtMtnM-unsplash.webp"
+                        alt="Dubai luxury holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Luxury
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            5 Days / 4 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Dubai Luxury Experience</h3>
+
+                    <p>
+
+                        Experience modern attractions, desert
+                        adventures and premium city hospitality.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Premium Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Transfers
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-camera"></i>
+                            City Tours
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹42,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="dubai-package"
+                                data-title="Dubai Luxury Experience"
+                                data-price="42999"
+                                data-type="Holiday Package"
+                                data-image="img/nature-photographer-29ezCWtMtnM-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="dubai-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="dubai-itinerary"
+                         hidden>
+
+                        <h4>5-Day Dubai Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and hotel check-in</li>
+                            <li>Day 2 – Burj Khalifa and Dubai Mall</li>
+                            <li>Day 3 – Desert safari experience</li>
+                            <li>Day 4 – Marina and city exploration</li>
+                            <li>Day 5 – Departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 7: SINGAPORE -->
+
+            <article class="package-card reveal"
+                     data-package-category="family"
+                     data-package-name="singapore family adventure"
+                     data-package-search="singapore family city gardens attractions asia">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/niklas-ohlrogge-niamoh-de-BkmdKnuAZtw-unsplash.webp"
+                        alt="Singapore city holiday"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Family Choice
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            4 Days / 3 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.8
+                        </span>
+
+                    </div>
+
+                    <h3>Singapore Family Adventure</h3>
+
+                    <p>
+
+                        Explore beautiful gardens, city attractions,
+                        exciting experiences and family activities.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-ticket"></i>
+                            Attractions
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Transfers
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹39,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="singapore-package"
+                                data-title="Singapore Family Adventure"
+                                data-price="39999"
+                                data-type="Holiday Package"
+                                data-image="img/niklas-ohlrogge-niamoh-de-BkmdKnuAZtw-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="singapore-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="singapore-itinerary"
+                         hidden>
+
+                        <h4>4-Day Singapore Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival and Marina Bay exploration</li>
+                            <li>Day 2 – Gardens by the Bay</li>
+                            <li>Day 3 – Sentosa Island activities</li>
+                            <li>Day 4 – Shopping and departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- PACKAGE 8: NEW ZEALAND -->
+
+            <article class="package-card reveal"
+                     data-package-category="adventure"
+                     data-package-name="new zealand adventure"
+                     data-package-search="new zealand adventure mountains nature lakes">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/sophie-turner-LZVmvKlchM0-unsplash.webp"
+                        alt="New Zealand mountain adventure"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Adventure Escape
+                    </span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            7 Days / 6 Nights
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>New Zealand Adventure</h3>
+
+                    <p>
+
+                        Discover majestic mountain ranges,
+                        scenic lakes and extraordinary outdoor activities.
+
+                    </p>
+
+                    <div class="package-features">
+
+                        <span>
+                            <i class="fa-solid fa-hotel"></i>
+                            Hotel Stay
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-mountain-sun"></i>
+                            Excursions
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-car"></i>
+                            Transport
+                        </span>
+
+                    </div>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹99,999</strong>
+
+                            <small>Per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="newzealand-package"
+                                data-title="New Zealand Adventure"
+                                data-price="99999"
+                                data-type="Holiday Package"
+                                data-image="img/sophie-turner-LZVmvKlchM0-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                    <button class="package-details-toggle"
+                            type="button"
+                            data-itinerary="nz-itinerary">
+
+                        View Itinerary
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </button>
+
+                    <div class="itinerary-content"
+                         id="nz-itinerary"
+                         hidden>
+
+                        <h4>7-Day New Zealand Itinerary</h4>
+
+                        <ul>
+                            <li>Day 1 – Arrival in Queenstown</li>
+                            <li>Day 2 – Lake and mountain sightseeing</li>
+                            <li>Day 3 – Adventure activities</li>
+                            <li>Day 4 – Scenic mountain journey</li>
+                            <li>Day 5 – Milford Sound excursion</li>
+                            <li>Day 6 – Local exploration</li>
+                            <li>Day 7 – Departure</li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULTS -->
+
+        <div id="no-packages"
+             class="empty-state"
+             style="display:none;margin-top:25px;">
+
+            <i class="fa-solid fa-suitcase-rolling"></i>
+
+            <h3>No Packages Found</h3>
+
+            <p>
+                Try a different keyword or choose another category.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT IS INCLUDED
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Travel With Confidence
+            </span>
+
+            <h2>What's Included in Our Packages?</h2>
+
+            <p>
+
+                We focus on making every part of your journey
+                comfortable, convenient and memorable.
+
+            </p>
+
+        </div>
+
+
+        <div class="highlight-grid">
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+
+                    <i class="fa-solid fa-hotel"></i>
+
+                </div>
+
+                <h3>Comfortable Accommodation</h3>
+
+                <p>
+
+                    Carefully selected hotels and accommodation
+                    options to suit your travel experience.
+
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+
+                    <i class="fa-solid fa-car"></i>
+
+                </div>
+
+                <h3>Travel Transfers</h3>
+
+                <p>
+
+                    Convenient local transportation and
+                    transfers according to the selected itinerary.
+
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+
+                    <i class="fa-solid fa-map-location-dot"></i>
+
+                </div>
+
+                <h3>Guided Experiences</h3>
+
+                <p>
+
+                    Discover destinations through thoughtfully
+                    planned sightseeing and activities.
+
+                </p>
+
+            </article>
+
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                </div>
+
+                <h3>Travel Assistance</h3>
+
+                <p>
+
+                    Get assistance with your travel planning
+                    and booking-related questions.
+
+                </p>
+
+            </article>
+
+        </div>
+
+        <p class="text-muted"
+           style="font-size:12px;text-align:center;margin-top:20px;">
+
+            Package inclusions vary by itinerary. Confirm the final
+            inclusions before completing a booking.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BOOKING CTA
+===================================================== -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="newsletter reveal">
+
+            <div>
+
+                <span class="eyebrow">
+                    Your Next Journey Starts Here
+                </span>
+
+                <h2>Ready to Explore Somewhere New?</h2>
+
+                <p>
+
+                    Find your perfect holiday package and
+                    start creating unforgettable travel memories.
+
+                </p>
+
+            </div>
+
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+
+                <a href="tourist.html"
+                   class="btn btn-outline">
+
+                    Explore Destinations
+
+                </a>
+
+                <a href="booking.html"
+                   class="btn btn-primary">
+
+                    View My Booking
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="newsletter reveal">
+
+            <div>
+
+                <h2>Travel Inspiration, Delivered.</h2>
+
+                <p>
+
+                    Subscribe to receive destination ideas,
+                    travel updates and special offers.
+
+                </p>
+
+            </div>
+
+            <form class="newsletter-form"
+                  data-newsletter-form>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    aria-label="Email address"
+                    required
+                >
+
+                <button type="submit"
+                        class="btn btn-primary">
+
+                    Subscribe
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+
+                    <span class="logo-mark">
+                        <i class="fa-solid fa-compass"></i>
+                    </span>
+
+                    <span style="color:white;">
+
+                        Voyage<span style="color:#FF8996;">Go</span>
+
+                    </span>
+
+                </a>
+
+                <p>
+
+                    Discover extraordinary destinations,
+                    premium holiday experiences and unforgettable
+                    journeys with VoyageGo.
+
+                </p>
+
+                <div class="footer-socials">
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="https://x.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="X">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+
+                    <a href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h3 class="footer-title">Explore</h3>
+
+                <ul class="footer-links">
+
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><a href="tourist.html">Destinations</a></li>
+
+                    <li><a href="packages.html">Packages</a></li>
+
+                    <li><a href="about.html">About Us</a></li>
+
+                    <li><a href="contact.html">Contact Us</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CUSTOMER CARE -->
+
+            <div>
+
+                <h3 class="footer-title">Customer Care</h3>
+
+                <ul class="footer-links">
+
+                    <li><a href="dashboard.html">My Profile</a></li>
+
+                    <li><a href="dashboard.html">My Bookings</a></li>
+
+                    <li><a href="contact.html">FAQs & Support</a></li>
+
+                    <li><a href="booking.html">Booking Assistance</a></li>
+
+                    <li><a href="login.html">Login / Sign Up</a></li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3 class="footer-title">Get in Touch</h3>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a href="mailto:hello@voyagego.example">
+
+                            <i class="fa-regular fa-envelope"></i>
+
+                            hello@voyagego.example
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="tel:+919876543210">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                            +91 98765 43210
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            <i class="fa-solid fa-location-dot"></i>
+
+                            Chennai, Tamil Nadu, India
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="footer-bottom">
+
+            <p>
+
+                © <span data-current-year></span>
+                VoyageGo. All rights reserved.
+
+            </p>
+
+            <p>
+
+                Discover More. Travel Further.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     LOCATION MODAL
+===================================================== -->
+
+<div class="modal" id="location-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Select Your Location</h3>
+
+            <button class="modal-close"
+                    data-modal-close="location-modal">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <p class="text-muted"
+           style="font-size:13px;margin-bottom:20px;">
+
+            Choose your preferred city or detect your current location.
+
+        </p>
+
+        <button class="btn btn-primary btn-block"
+                id="detect-location">
+
+            <i class="fa-solid fa-location-crosshairs"></i>
+
+            Use my current location
+
+        </button>
+
+        <h4 style="margin:22px 0 12px;">
+            Popular Cities
+        </h4>
+
+        <div class="language-options">
+
+            <button class="language-option" data-city="Chennai">
+                Chennai
+            </button>
+
+            <button class="language-option" data-city="Bengaluru">
+                Bengaluru
+            </button>
+
+            <button class="language-option" data-city="Mumbai">
+                Mumbai
+            </button>
+
+            <button class="language-option" data-city="Hyderabad">
+                Hyderabad
+            </button>
+
+            <button class="language-option" data-city="Delhi">
+                Delhi
+            </button>
+
+            <button class="language-option" data-city="Kochi">
+                Kochi
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LANGUAGE MODAL
+===================================================== -->
+
+<div class="modal" id="language-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Select Language</h3>
+
+            <button class="modal-close"
+                    data-modal-close="language-modal">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div class="language-options">
+
+            <button class="language-option" data-language="en">
+                English
+            </button>
+
+            <button class="language-option" data-language="ta">
+                தமிழ்
+            </button>
+
+            <button class="language-option" data-language="hi">
+                हिन्दी
+            </button>
+
+            <button class="language-option" data-language="te">
+                తెలుగు
+            </button>
+
+            <button class="language-option" data-language="kn">
+                ಕನ್ನಡ
+            </button>
+
+            <button class="language-option" data-language="ml">
+                മലയാളം
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     SHARED JAVASCRIPT
+===================================================== -->
+
+<script src="js/main.js"></script>
+
+
+<!-- =====================================================
+     PACKAGE FILTER & ITINERARY SCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput =
+        document.getElementById("package-search");
+
+    const clearButton =
+        document.getElementById("clear-package-search");
+
+    const packageCards =
+        document.querySelectorAll(".package-card");
+
+    const filterButtons =
+        document.querySelectorAll("[data-package-filter]");
+
+    const noResults =
+        document.getElementById("no-packages");
+
+    let activeCategory = "all";
+
+
+    // ==============================================
+    // FILTER PACKAGES
+    // ==============================================
+
+    function filterPackages() {
+
+        const searchValue =
+            searchInput.value.trim().toLowerCase();
+
+        let visibleCount = 0;
+
+        packageCards.forEach(card => {
+
+            const name =
+                card.dataset.packageName.toLowerCase();
+
+            const keywords =
+                card.dataset.packageSearch.toLowerCase();
+
+            const categories =
+                card.dataset.packageCategory.split(" ");
+
+            const matchesSearch =
+                name.includes(searchValue) ||
+                keywords.includes(searchValue);
+
+            const matchesCategory =
+                activeCategory === "all" ||
+                categories.includes(activeCategory);
+
+            const show =
+                matchesSearch && matchesCategory;
+
+            card.classList.toggle("hidden", !show);
+
+            if (show) {
+                visibleCount++;
+            }
+
+        });
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+
+    }
+
+
+    // ==============================================
+    // CATEGORY BUTTONS
+    // ==============================================
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            filterButtons.forEach(item => {
+
+                item.classList.remove("active");
+
+            });
+
+            button.classList.add("active");
+
+            activeCategory =
+                button.dataset.packageFilter;
+
+            filterPackages();
+
+        });
+
+    });
+
+
+    // ==============================================
+    // SEARCH
+    // ==============================================
+
+    searchInput.addEventListener("input", function () {
+
+        filterPackages();
+
+    });
+
+
+    // ==============================================
+    // CLEAR SEARCH
+    // ==============================================
+
+    clearButton.addEventListener("click", function () {
+
+        searchInput.value = "";
+
+        activeCategory = "all";
+
+        filterButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.packageFilter === "all"
+            );
+
+        });
+
+        filterPackages();
+
+    });
+
+
+    // ==============================================
+    // ITINERARY TOGGLE
+    // ==============================================
+
+    document.querySelectorAll("[data-itinerary]")
+        .forEach(button => {
+
+            button.addEventListener("click", function () {
+
+                const itineraryId =
+                    button.dataset.itinerary;
+
+                const itinerary =
+                    document.getElementById(itineraryId);
+
+                if (!itinerary) return;
+
+                const isHidden =
+                    itinerary.hidden;
+
+                itinerary.hidden = !isHidden;
+
+                button.classList.toggle("expanded", isHidden);
+
+                button.innerHTML = isHidden
+                    ? 'Hide Itinerary <i class="fa-solid fa-chevron-up"></i>'
+                    : 'View Itinerary <i class="fa-solid fa-chevron-down"></i>';
+
+            });
+
+        });
+
+
+    // ==============================================
+    // INITIAL FILTER
+    // ==============================================
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const selectedSearch =
+        params.get("search");
+
+    if (selectedSearch) {
+
+        searchInput.value = selectedSearch;
+
+    }
+
+    filterPackages();
+
+});
+
+</script>
+
+</body>
+</html>

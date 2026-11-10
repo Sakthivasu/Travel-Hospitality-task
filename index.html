@@ -1,0 +1,943 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="description" content="Discover unforgettable destinations, premium holiday packages and seamless travel experiences with VoyageGo.">
+
+    <title>VoyageGo - Discover Your Next Journey</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="site-header">
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+            Voyage<span class="text-primary">Go</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="index.html" class="active" data-i18n="home">Home</a>
+            <a href="tourist.html" data-i18n="destinations">Destinations</a>
+            <a href="packages.html" data-i18n="packages">Packages</a>
+            <a href="about.html" data-i18n="about">About Us</a>
+            <a href="contact.html" data-i18n="contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="nav-utility" data-location-trigger>
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-current-city>Chennai</span>
+            </button>
+
+            <button class="nav-utility" data-language-trigger>
+                <i class="fa-solid fa-globe"></i>
+                <span data-language-current>EN</span>
+            </button>
+
+            <a href="login.html" class="btn btn-outline btn-sm desktop-auth">
+                Login
+            </a>
+
+            <a href="booking.html" class="btn btn-primary btn-sm desktop-auth">
+                Book Now
+            </a>
+
+            <button class="mobile-toggle"
+                    id="mobile-toggle"
+                    aria-label="Open navigation"
+                    aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+    </div>
+</header>
+
+<!-- MOBILE OVERLAY -->
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<!-- MOBILE DRAWER -->
+
+<aside class="mobile-drawer"
+       id="mobile-drawer"
+       aria-hidden="true">
+
+    <div class="drawer-header">
+        <a href="index.html" class="logo">
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+            Voyage<span class="text-primary">Go</span>
+        </a>
+
+        <button class="drawer-close" id="drawer-close">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+
+    <nav class="drawer-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="tourist.html">Destinations</a>
+        <a href="packages.html">Packages</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="booking.html">My Booking</a>
+        <a href="dashboard.html">My Dashboard</a>
+    </nav>
+
+    <div class="drawer-actions">
+        <button class="btn btn-outline btn-block"
+                data-location-trigger>
+            <i class="fa-solid fa-location-dot"></i>
+            <span data-current-city>Chennai</span>
+        </button>
+
+        <button class="btn btn-outline btn-block"
+                data-language-trigger>
+            <i class="fa-solid fa-globe"></i>
+            Change Language
+        </button>
+
+        <a href="login.html" class="btn btn-primary btn-block">
+            Login / Sign Up
+        </a>
+    </div>
+
+</aside>
+
+<!-- ================= HERO ================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-earth-americas"></i>
+            Discover. Experience. Remember.
+        </span>
+
+        <h1>
+            Your Journey.<br>
+            Your Story.<br>
+            <span>Your World.</span>
+        </h1>
+
+        <p>
+            Discover breathtaking destinations, handpicked holiday
+            experiences and unforgettable journeys with VoyageGo.
+        </p>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:30px;">
+
+            <a href="tourist.html" class="btn btn-primary">
+                Explore Destinations
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+            <a href="packages.html" class="btn btn-white">
+                View Packages
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= SEARCH WIDGET ================= -->
+
+<div class="hero-search-wrap">
+
+    <form class="search-widget" id="travel-search-form">
+
+        <div class="search-field">
+
+            <label>
+                <i class="fa-solid fa-location-dot text-primary"></i>
+                Where do you want to go?
+            </label>
+
+            <div class="search-field-inner">
+                <input
+                    type="text"
+                    id="search-destination"
+                    placeholder="Search destination..."
+                    list="destination-suggestions"
+                    required
+                >
+
+                <datalist id="destination-suggestions">
+                    <option value="Bali">
+                    <option value="Paris">
+                    <option value="Maldives">
+                    <option value="Switzerland">
+                    <option value="Dubai">
+                    <option value="Goa">
+                    <option value="Kerala">
+                    <option value="Singapore">
+                </datalist>
+            </div>
+
+        </div>
+
+        <div class="search-field">
+
+            <label>
+                <i class="fa-regular fa-calendar text-primary"></i>
+                Travel Date
+            </label>
+
+            <div class="search-field-inner">
+                <input type="date"
+                       id="search-date"
+                       required>
+            </div>
+
+        </div>
+
+        <div class="search-field">
+
+            <label>
+                <i class="fa-solid fa-user-group text-primary"></i>
+                Guests
+            </label>
+
+            <div class="search-field-inner">
+                <select id="search-guests">
+                    <option value="1">1 Guest</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6+ Guests</option>
+                </select>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+<!-- ================= TRUST STATS ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="stats-grid">
+
+            <div class="stat-card reveal">
+                <h3>50+</h3>
+                <p>Destinations</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>120+</h3>
+                <p>Holiday Packages</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>15K+</h3>
+                <p>Happy Travellers</p>
+            </div>
+
+            <div class="stat-card reveal">
+                <h3>24/7</h3>
+                <p>Travel Assistance</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Explore the World</span>
+
+            <h2 data-i18n="popular">
+                Popular Destinations
+            </h2>
+
+            <p>
+                Discover incredible places and experience the beauty
+                of the world with our handpicked destinations.
+            </p>
+
+        </div>
+
+        <div class="destination-grid">
+
+            <!-- BALI -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    src="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp"
+                    alt="Beautiful Bali tropical landscape"
+                    loading="lazy"
+                >
+
+                <span class="destination-top">Most Popular</span>
+
+                <div class="destination-info">
+                    <h3>Bali, Indonesia</h3>
+                    <p>Beaches · Temples · Island Life</p>
+                </div>
+
+                <a href="tourist.html" class="card-arrow"
+                   aria-label="Explore Bali">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+            <!-- PARIS -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    src="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp"
+                    alt="Paris city and Eiffel Tower"
+                    loading="lazy"
+                >
+
+                <span class="destination-top">Romantic Escape</span>
+
+                <div class="destination-info">
+                    <h3>Paris, France</h3>
+                    <p>Culture · Architecture · Romance</p>
+                </div>
+
+                <a href="tourist.html" class="card-arrow"
+                   aria-label="Explore Paris">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+            <!-- MALDIVES -->
+
+            <article class="destination-card reveal">
+
+                <img
+                    src="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp"
+                    alt="Maldives luxury island resort"
+                    loading="lazy"
+                >
+
+                <span class="destination-top">Luxury Escape</span>
+
+                <div class="destination-info">
+                    <h3>Maldives</h3>
+                    <p>Luxury · Ocean · Relaxation</p>
+                </div>
+
+                <a href="tourist.html" class="card-arrow"
+                   aria-label="Explore Maldives">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </article>
+
+        </div>
+
+        <div style="text-align:center;margin-top:35px;">
+
+            <a href="tourist.html" class="btn btn-outline">
+                View All Destinations
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FEATURED PACKAGES ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Curated Experiences</span>
+
+            <h2>Featured Holiday Packages</h2>
+
+            <p>
+                Beautifully planned experiences with accommodation,
+                sightseeing and unforgettable moments.
+            </p>
+
+        </div>
+
+        <div class="package-grid">
+
+            <!-- PACKAGE 1 -->
+
+            <article class="package-card reveal">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp"
+                        alt="Bali holiday package"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">Best Seller</span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 5 Days / 4 Nights</span>
+                        <span><i class="fa-solid fa-star text-primary"></i> 4.9</span>
+                    </div>
+
+                    <h3>Bali Tropical Escape</h3>
+
+                    <p>
+                        Enjoy stunning beaches, island adventures,
+                        premium stays and cultural experiences.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+                            <strong>₹35,999</strong>
+                            <small>Starting per person</small>
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                            data-add-booking
+                            data-id="bali-package"
+                            data-title="Bali Tropical Escape"
+                            data-price="35999"
+                            data-type="Holiday Package"
+                            data-image="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp">
+                            Add Trip
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PACKAGE 2 -->
+
+            <article class="package-card reveal">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp"
+                        alt="Paris holiday package"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">Romantic</span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</span>
+                        <span><i class="fa-solid fa-star text-primary"></i> 4.8</span>
+                    </div>
+
+                    <h3>Paris City Experience</h3>
+
+                    <p>
+                        Explore iconic architecture, beautiful streets,
+                        museums and memorable city experiences.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+                            <strong>₹59,999</strong>
+                            <small>Starting per person</small>
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                            data-add-booking
+                            data-id="paris-package"
+                            data-title="Paris City Experience"
+                            data-price="59999"
+                            data-type="Holiday Package"
+                            data-image="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp">
+                            Add Trip
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PACKAGE 3 -->
+
+            <article class="package-card reveal">
+
+                <div class="package-image">
+
+                    <img
+                        src="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp"
+                        alt="Maldives luxury package"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">Premium</span>
+
+                </div>
+
+                <div class="package-content">
+
+                    <div class="package-meta">
+                        <span><i class="fa-regular fa-clock"></i> 4 Days / 3 Nights</span>
+                        <span><i class="fa-solid fa-star text-primary"></i> 5.0</span>
+                    </div>
+
+                    <h3>Maldives Luxury Retreat</h3>
+
+                    <p>
+                        Experience turquoise waters, premium resorts,
+                        private beaches and relaxing island life.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+                            <strong>₹74,999</strong>
+                            <small>Starting per person</small>
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                            data-add-booking
+                            data-id="maldives-package"
+                            data-title="Maldives Luxury Retreat"
+                            data-price="74999"
+                            data-type="Holiday Package"
+                            data-image="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp">
+                            Add Trip
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        <div style="text-align:center;margin-top:35px;">
+
+            <a href="packages.html" class="btn btn-outline">
+                Explore All Packages
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= WHY VOYAGEGO ================= -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Why VoyageGo</span>
+
+            <h2>Travel Better. Experience More.</h2>
+
+            <p>
+                Every journey deserves thoughtful planning,
+                exceptional hospitality and reliable support.
+            </p>
+
+        </div>
+
+        <div class="highlight-grid">
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-earth-americas"></i>
+                </div>
+
+                <h3>Handpicked Destinations</h3>
+
+                <p>
+                    Explore carefully selected destinations
+                    and exceptional travel experiences.
+                </p>
+
+            </article>
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+
+                <h3>Premium Hospitality</h3>
+
+                <p>
+                    Enjoy comfortable stays, quality service
+                    and thoughtfully designed holiday packages.
+                </p>
+
+            </article>
+
+            <article class="highlight-card reveal">
+
+                <div class="highlight-icon">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+
+                <h3>Travel Assistance</h3>
+
+                <p>
+                    Get helpful support throughout your
+                    travel planning and booking journey.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="newsletter reveal">
+
+            <div>
+                <h2>Let the World Come to You.</h2>
+
+                <p>
+                    Subscribe for destination inspiration,
+                    travel updates and exclusive offers.
+                </p>
+            </div>
+
+            <form class="newsletter-form" data-newsletter-form>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    aria-label="Email address"
+                    required
+                >
+
+                <button type="submit" class="btn btn-primary">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    <span class="logo-mark">
+                        <i class="fa-solid fa-compass"></i>
+                    </span>
+                    <span style="color:white">
+                        Voyage<span style="color:#FF8996">Go</span>
+                    </span>
+                </a>
+
+                <p>
+                    Discover extraordinary destinations and
+                    create beautiful memories with VoyageGo.
+                    Your journey begins with us.
+                </p>
+
+                <div class="footer-socials">
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank" rel="noopener"
+                       aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                       target="_blank" rel="noopener"
+                       aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://x.com/"
+                       target="_blank" rel="noopener"
+                       aria-label="X">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+
+                    <a href="https://www.youtube.com/"
+                       target="_blank" rel="noopener"
+                       aria-label="YouTube">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <h3 class="footer-title" data-i18n="footerExplore">
+                    Explore
+                </h3>
+
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tourist.html">Destinations</a></li>
+                    <li><a href="packages.html">Packages</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3 class="footer-title" data-i18n="customerCare">
+                    Customer Care
+                </h3>
+
+                <ul class="footer-links">
+                    <li><a href="dashboard.html">My Profile</a></li>
+                    <li><a href="dashboard.html">My Bookings</a></li>
+                    <li><a href="contact.html">FAQs & Support</a></li>
+                    <li><a href="booking.html">Booking Assistance</a></li>
+                    <li><a href="login.html">Login / Sign Up</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h3 class="footer-title" data-i18n="getInTouch">
+                    Get in Touch
+                </h3>
+
+                <ul class="footer-links">
+                    <li>
+                        <a href="mailto:hello@voyagego.example">
+                            <i class="fa-regular fa-envelope"></i>
+                            hello@voyagego.example
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="tel:+919876543210">
+                            <i class="fa-solid fa-phone"></i>
+                            +91 98765 43210
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            <i class="fa-solid fa-location-dot"></i>
+                            Chennai, Tamil Nadu, India
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span data-current-year></span> VoyageGo.
+                All rights reserved.
+            </p>
+
+            <p>Designed for journeys worth remembering.</p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- ================= LOCATION MODAL ================= -->
+
+<div class="modal" id="location-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3>Select Your Location</h3>
+
+            <button class="modal-close"
+                    data-modal-close="location-modal">
+                &times;
+            </button>
+        </div>
+
+        <p class="text-muted" style="font-size:13px;margin-bottom:20px;">
+            Choose a city or allow VoyageGo to detect your current location.
+        </p>
+
+        <button class="btn btn-primary btn-block"
+                id="detect-location">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            Use my current location
+        </button>
+
+        <h4 style="margin:22px 0 12px;">Popular Cities</h4>
+
+        <div class="language-options">
+
+            <button class="language-option" data-city="Chennai">
+                Chennai
+            </button>
+
+            <button class="language-option" data-city="Bengaluru">
+                Bengaluru
+            </button>
+
+            <button class="language-option" data-city="Mumbai">
+                Mumbai
+            </button>
+
+            <button class="language-option" data-city="Hyderabad">
+                Hyderabad
+            </button>
+
+            <button class="language-option" data-city="Delhi">
+                Delhi
+            </button>
+
+            <button class="language-option" data-city="Kochi">
+                Kochi
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= LANGUAGE MODAL ================= -->
+
+<div class="modal" id="language-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+            <h3>Select Language</h3>
+
+            <button class="modal-close"
+                    data-modal-close="language-modal">
+                &times;
+            </button>
+        </div>
+
+        <div class="language-options">
+
+            <button class="language-option" data-language="en">
+                English
+            </button>
+
+            <button class="language-option" data-language="ta">
+                தமிழ்
+            </button>
+
+            <button class="language-option" data-language="hi">
+                हिन्दी
+            </button>
+
+            <button class="language-option" data-language="te">
+                తెలుగు
+            </button>
+
+            <button class="language-option" data-language="kn">
+                ಕನ್ನಡ
+            </button>
+
+            <button class="language-option" data-language="ml">
+                മലയാളം
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

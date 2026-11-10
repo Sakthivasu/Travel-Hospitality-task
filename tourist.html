@@ -1,0 +1,1624 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="description" content="Explore beautiful travel destinations around the world with VoyageGo. Discover beaches, mountains, cities and luxury escapes.">
+
+    <title>Explore Destinations | VoyageGo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="site-header">
+
+    <div class="container navbar">
+
+        <a href="index.html" class="logo">
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+
+            Voyage<span class="text-primary">Go</span>
+        </a>
+
+        <nav class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="tourist.html" class="active">
+                Destinations
+            </a>
+
+            <a href="packages.html">Packages</a>
+
+            <a href="about.html">About Us</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+        <div class="nav-actions">
+
+            <button class="nav-utility" data-location-trigger>
+                <i class="fa-solid fa-location-dot"></i>
+                <span data-current-city>Chennai</span>
+            </button>
+
+            <button class="nav-utility" data-language-trigger>
+                <i class="fa-solid fa-globe"></i>
+                <span data-language-current>EN</span>
+            </button>
+
+            <a href="login.html"
+               class="btn btn-outline btn-sm desktop-auth">
+                Login
+            </a>
+
+            <a href="booking.html"
+               class="btn btn-primary btn-sm desktop-auth">
+
+                <i class="fa-solid fa-suitcase-rolling"></i>
+                Book Now
+
+                <span data-booking-count>0</span>
+
+            </a>
+
+            <button class="mobile-toggle"
+                    id="mobile-toggle"
+                    aria-label="Open navigation"
+                    aria-expanded="false">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+===================================================== -->
+
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<aside class="mobile-drawer"
+       id="mobile-drawer"
+       aria-hidden="true">
+
+    <div class="drawer-header">
+
+        <a href="index.html" class="logo">
+
+            <span class="logo-mark">
+                <i class="fa-solid fa-compass"></i>
+            </span>
+
+            Voyage<span class="text-primary">Go</span>
+
+        </a>
+
+        <button class="drawer-close" id="drawer-close"
+                aria-label="Close navigation">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </div>
+
+    <nav class="drawer-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="tourist.html" class="active">
+            Destinations
+        </a>
+
+        <a href="packages.html">Packages</a>
+
+        <a href="about.html">About Us</a>
+
+        <a href="contact.html">Contact Us</a>
+
+        <a href="booking.html">My Booking</a>
+
+        <a href="dashboard.html">My Dashboard</a>
+
+    </nav>
+
+    <div class="drawer-actions">
+
+        <button class="btn btn-outline btn-block"
+                data-location-trigger>
+
+            <i class="fa-solid fa-location-dot"></i>
+            <span data-current-city>Chennai</span>
+
+        </button>
+
+        <button class="btn btn-outline btn-block"
+                data-language-trigger>
+
+            <i class="fa-solid fa-globe"></i>
+            Change Language
+
+        </button>
+
+        <a href="login.html" class="btn btn-primary btn-block">
+            Login / Sign Up
+        </a>
+
+    </div>
+
+</aside>
+
+
+<!-- =====================================================
+     PAGE BANNER
+===================================================== -->
+
+<main>
+
+<section class="page-banner">
+
+    <div class="container">
+
+        <span class="eyebrow">
+            <i class="fa-solid fa-earth-americas"></i>
+            Discover New Experiences
+        </span>
+
+        <h1>Explore the World</h1>
+
+        <p>
+            Discover beautiful destinations, extraordinary cultures
+            and unforgettable experiences.
+        </p>
+
+        <div class="breadcrumb">
+
+            <a href="index.html">Home</a>
+
+            <i class="fa-solid fa-chevron-right"
+               style="font-size:10px;margin:0 8px;"></i>
+
+            <span>Destinations</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     DESTINATION SEARCH
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">
+                Find Your Next Adventure
+            </span>
+
+            <h2>Where Would You Like to Go?</h2>
+
+            <p>
+                Search through our collection of beautiful
+                destinations and find your perfect escape.
+            </p>
+
+        </div>
+
+        <div class="form-card reveal">
+
+            <div class="form-grid">
+
+                <div class="form-group full">
+
+                    <label for="destination-search">
+                        Search Destination
+                    </label>
+
+                    <div style="position:relative;">
+
+                        <i class="fa-solid fa-magnifying-glass text-primary"
+                           style="position:absolute;left:15px;top:17px;"></i>
+
+                        <input
+                            type="search"
+                            id="destination-search"
+                            placeholder="Search Bali, Paris, Maldives..."
+                            style="padding-left:43px;"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px;">
+
+                <p class="text-muted" style="font-size:12px;">
+                    <i class="fa-solid fa-location-dot text-primary"></i>
+                    Explore destinations across the globe
+                </p>
+
+                <button type="button"
+                        class="btn btn-outline btn-sm"
+                        id="clear-destination-search">
+
+                    <i class="fa-solid fa-rotate-left"></i>
+                    Clear Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATEGORY FILTERS
+===================================================== -->
+
+<section class="section section-light"
+         style="padding-top:55px;">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <span class="eyebrow">Explore by Interest</span>
+
+            <h2>Find Your Travel Style</h2>
+
+            <p>
+                Choose your favourite travel experience
+                and discover destinations made for you.
+            </p>
+
+        </div>
+
+        <div class="filter-bar reveal">
+
+            <button class="filter-btn active"
+                    data-filter="all">
+
+                All Destinations
+
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="beach">
+
+                <i class="fa-solid fa-umbrella-beach"></i>
+                Beaches
+
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="mountain">
+
+                <i class="fa-solid fa-mountain-sun"></i>
+                Mountains
+
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="city">
+
+                <i class="fa-solid fa-city"></i>
+                City Life
+
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="nature">
+
+                <i class="fa-solid fa-leaf"></i>
+                Nature
+
+            </button>
+
+            <button class="filter-btn"
+                    data-filter="luxury">
+
+                <i class="fa-solid fa-gem"></i>
+                Luxury
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             DESTINATION GRID
+        ================================================= -->
+
+        <div class="destination-listing" id="destination-grid">
+
+
+            <!-- DESTINATION 1 : BALI -->
+
+            <article class="listing-card reveal"
+                     data-category="beach"
+                     data-name="bali indonesia"
+                     data-search="bali indonesia beach tropical island asia">
+
+                <div style="position:relative;">
+
+                    <img
+                        src="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp"
+                        alt="Beautiful Bali Indonesia"
+                        loading="lazy"
+                    >
+
+                    <span class="package-tag">
+                        Popular Choice
+                    </span>
+
+                </div>
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            Indonesia
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Bali, Indonesia</h3>
+
+                    <p>
+                        Tropical beaches, beautiful temples,
+                        lush rice terraces and island adventures.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹35,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-bali"
+                                data-title="Bali, Indonesia"
+                                data-price="35999"
+                                data-type="Destination"
+                                data-image="img/ishan-seefromthesky-DtWyp_4YEes-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 2 : MALDIVES -->
+
+            <article class="listing-card reveal"
+                     data-category="beach"
+                     data-name="maldives"
+                     data-search="maldives beach luxury island resort ocean">
+
+                <img
+                    src="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp"
+                    alt="Maldives luxury island resort"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            Indian Ocean
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            5.0
+                        </span>
+
+                    </div>
+
+                    <h3>Maldives</h3>
+
+                    <p>
+                        Crystal-clear waters, overwater villas
+                        and peaceful luxury island experiences.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹74,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-maldives"
+                                data-title="Maldives"
+                                data-price="74999"
+                                data-type="Destination"
+                                data-image="img/katarzyna-zygnerska-Y0UUhY1V7Po-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 3 : GOA -->
+
+            <article class="listing-card reveal"
+                     data-category="beach"
+                     data-name="goa india"
+                     data-search="goa india beach nightlife coastline">
+
+                <img
+                    src="img/tom-podmore-PNcxIa2HHBk-unsplash.webp"
+                    alt="Goa coastal beach"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            India
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.8
+                        </span>
+
+                    </div>
+
+                    <h3>Goa, India</h3>
+
+                    <p>
+                        Enjoy sunny beaches, coastal resorts,
+                        seafood and vibrant local culture.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹14,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-goa"
+                                data-title="Goa, India"
+                                data-price="14999"
+                                data-type="Destination"
+                                data-image="img/tom-podmore-PNcxIa2HHBk-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 4 : SWITZERLAND -->
+
+            <article class="listing-card reveal"
+                     data-category="mountain"
+                     data-name="switzerland"
+                     data-search="switzerland mountain alps snow scenic europe">
+
+                <img
+                    src="img/lightscape-LtnPejWDSAY-unsplash.webp"
+                    alt="Swiss Alps mountain landscape"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            Europe
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Switzerland</h3>
+
+                    <p>
+                        Experience snow-covered peaks,
+                        mountain villages and scenic train journeys.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹89,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-switzerland"
+                                data-title="Switzerland"
+                                data-price="89999"
+                                data-type="Destination"
+                                data-image="img/lightscape-LtnPejWDSAY-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 5 : PARIS -->
+
+            <article class="listing-card reveal"
+                     data-category="city"
+                     data-name="paris france"
+                     data-search="paris france city architecture romantic europe">
+
+                <img
+                    src="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp"
+                    alt="Paris Eiffel Tower"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            France
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.8
+                        </span>
+
+                    </div>
+
+                    <h3>Paris, France</h3>
+
+                    <p>
+                        Discover iconic landmarks, elegant
+                        streets, art and unforgettable city life.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹59,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-paris"
+                                data-title="Paris, France"
+                                data-price="59999"
+                                data-type="Destination"
+                                data-image="img/kalen-emsley-Bkci_8qcdvQ-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 6 : DUBAI -->
+
+            <article class="listing-card reveal"
+                     data-category="luxury"
+                     data-name="dubai united arab emirates"
+                     data-search="dubai luxury city desert shopping architecture">
+
+                <img
+                    src="img/nature-photographer-29ezCWtMtnM-unsplash.webp"
+                    alt="Dubai modern skyline"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            UAE
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Dubai, UAE</h3>
+
+                    <p>
+                        Discover luxurious hotels, iconic
+                        architecture and exciting desert adventures.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹42,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-dubai"
+                                data-title="Dubai, UAE"
+                                data-price="42999"
+                                data-type="Destination"
+                                data-image="img/nature-photographer-29ezCWtMtnM-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 7 : KERALA -->
+
+            <article class="listing-card reveal"
+                     data-category="nature"
+                     data-name="kerala india"
+                     data-search="kerala india nature backwaters green forests">
+
+                <img
+                    src="img/luca-bravo-O453M2Liufs-unsplash.webp"
+                    alt="Kerala lush green landscape"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            India
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>Kerala, India</h3>
+
+                    <p>
+                        Experience beautiful backwaters,
+                        lush green hills and peaceful nature retreats.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹19,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-kerala"
+                                data-title="Kerala, India"
+                                data-price="19999"
+                                data-type="Destination"
+                                data-image="img/luca-bravo-O453M2Liufs-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 8 : SINGAPORE -->
+
+            <article class="listing-card reveal"
+                     data-category="city"
+                     data-name="singapore"
+                     data-search="singapore city gardens architecture modern asia">
+
+                <img
+                    src="img/niklas-ohlrogge-niamoh-de-BkmdKnuAZtw-unsplash.webp"
+                    alt="Singapore city skyline"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            Singapore
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.8
+                        </span>
+
+                    </div>
+
+                    <h3>Singapore</h3>
+
+                    <p>
+                        Discover futuristic gardens, modern
+                        attractions and vibrant urban experiences.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹39,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-singapore"
+                                data-title="Singapore"
+                                data-price="39999"
+                                data-type="Destination"
+                                data-image="img/niklas-ohlrogge-niamoh-de-BkmdKnuAZtw-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- DESTINATION 9 : NEW ZEALAND -->
+
+            <article class="listing-card reveal"
+                     data-category="mountain"
+                     data-name="new zealand"
+                     data-search="new zealand mountains nature lakes adventure">
+
+                <img
+                    src="img/sophie-turner-LZVmvKlchM0-unsplash.webp"
+                    alt="New Zealand scenic mountain landscape"
+                    loading="lazy"
+                >
+
+                <div class="listing-body">
+
+                    <div class="package-meta">
+
+                        <span>
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            New Zealand
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-star text-primary"></i>
+                            4.9
+                        </span>
+
+                    </div>
+
+                    <h3>New Zealand</h3>
+
+                    <p>
+                        Explore dramatic mountains, beautiful
+                        lakes and breathtaking outdoor adventures.
+                    </p>
+
+                    <div class="package-bottom">
+
+                        <div class="package-price">
+
+                            <strong>₹99,999</strong>
+
+                            <small>Starting per person</small>
+
+                        </div>
+
+                        <button class="btn btn-primary btn-sm"
+                                data-add-booking
+                                data-id="destination-newzealand"
+                                data-title="New Zealand"
+                                data-price="99999"
+                                data-type="Destination"
+                                data-image="img/sophie-turner-LZVmvKlchM0-unsplash.webp">
+
+                            <i class="fa-solid fa-plus"></i>
+                            Add Trip
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- NO RESULTS MESSAGE -->
+
+        <div id="no-destinations"
+             class="empty-state"
+             style="display:none;margin-top:25px;">
+
+            <i class="fa-solid fa-map-location-dot"></i>
+
+            <h3>No Destinations Found</h3>
+
+            <p>
+                Try another destination name or select a different category.
+            </p>
+
+        </div>
+
+
+        <!-- EXPLORE PACKAGES -->
+
+        <div style="text-align:center;margin-top:45px;">
+
+            <p class="text-muted" style="margin-bottom:15px;">
+                Found your dream destination?
+            </p>
+
+            <a href="packages.html" class="btn btn-primary">
+
+                Explore Travel Packages
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TRAVEL INSPIRATION
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div class="about-image reveal">
+
+                <img
+                    src="img/chris-karidis-nnzkZNYWHaU-unsplash.webp"
+                    alt="Beautiful mountain lake travel scenery"
+                    loading="lazy"
+                >
+
+                <div class="about-experience">
+
+                    <strong>50+</strong>
+
+                    <span style="font-size:12px;color:var(--text);">
+                        Destinations to Explore
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="about-content reveal">
+
+                <span class="eyebrow">
+                    Travel Inspiration
+                </span>
+
+                <h2>
+                    Every Destination Has a Story.
+                </h2>
+
+                <p>
+                    The best journeys are about more than just
+                    reaching a destination. They are about the
+                    experiences, people and memories you discover
+                    along the way.
+                </p>
+
+                <p>
+                    VoyageGo helps you discover inspiring places
+                    and plan meaningful travel experiences.
+                </p>
+
+                <ul class="check-list">
+
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Carefully selected travel experiences
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Flexible holiday packages
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-circle-check"></i>
+                        Dedicated travel assistance
+                    </li>
+
+                </ul>
+
+                <a href="about.html" class="btn btn-primary">
+                    Discover Our Story
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+===================================================== -->
+
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="newsletter reveal">
+
+            <div>
+
+                <h2>Get Inspired for Your Next Trip.</h2>
+
+                <p>
+                    Receive travel inspiration, destination guides
+                    and the latest holiday updates.
+                </p>
+
+            </div>
+
+            <form class="newsletter-form"
+                  data-newsletter-form>
+
+                <input
+                    type="email"
+                    placeholder="Enter your email address"
+                    aria-label="Email address"
+                    required
+                >
+
+                <button type="submit" class="btn btn-primary">
+                    Subscribe
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+
+                    <span class="logo-mark">
+                        <i class="fa-solid fa-compass"></i>
+                    </span>
+
+                    <span style="color:white;">
+                        Voyage<span style="color:#FF8996;">Go</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Discover extraordinary destinations,
+                    premium holiday experiences and unforgettable
+                    journeys with VoyageGo.
+                </p>
+
+                <div class="footer-socials">
+
+                    <a href="https://www.instagram.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="https://x.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="X">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+
+                    <a href="https://www.youtube.com/"
+                       target="_blank"
+                       rel="noopener"
+                       aria-label="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+
+            <div>
+
+                <h3 class="footer-title">Explore</h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="tourist.html">Destinations</a>
+                    </li>
+
+                    <li>
+                        <a href="packages.html">Packages</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact Us</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CUSTOMER CARE -->
+
+            <div>
+
+                <h3 class="footer-title">Customer Care</h3>
+
+                <ul class="footer-links">
+
+                    <li>
+                        <a href="dashboard.html">My Profile</a>
+                    </li>
+
+                    <li>
+                        <a href="dashboard.html">My Bookings</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">FAQs & Support</a>
+                    </li>
+
+                    <li>
+                        <a href="booking.html">Booking Assistance</a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">Login / Sign Up</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACT -->
+
+            <div>
+
+                <h3 class="footer-title">Get in Touch</h3>
+
+                <ul class="footer-links">
+
+                    <li>
+
+                        <a href="mailto:hello@voyagego.example">
+
+                            <i class="fa-regular fa-envelope"></i>
+                            hello@voyagego.example
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="tel:+919876543210">
+
+                            <i class="fa-solid fa-phone"></i>
+                            +91 98765 43210
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="contact.html">
+
+                            <i class="fa-solid fa-location-dot"></i>
+                            Chennai, Tamil Nadu, India
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span data-current-year></span>
+                VoyageGo. All rights reserved.
+            </p>
+
+            <p>
+                Discover More. Travel Further.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     LOCATION MODAL
+===================================================== -->
+
+<div class="modal" id="location-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Select Your Location</h3>
+
+            <button class="modal-close"
+                    data-modal-close="location-modal">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <p class="text-muted"
+           style="font-size:13px;margin-bottom:20px;">
+
+            Select your preferred city or detect your current location.
+
+        </p>
+
+        <button class="btn btn-primary btn-block"
+                id="detect-location">
+
+            <i class="fa-solid fa-location-crosshairs"></i>
+            Use my current location
+
+        </button>
+
+        <h4 style="margin:22px 0 12px;">
+            Popular Cities
+        </h4>
+
+        <div class="language-options">
+
+            <button class="language-option" data-city="Chennai">
+                Chennai
+            </button>
+
+            <button class="language-option" data-city="Bengaluru">
+                Bengaluru
+            </button>
+
+            <button class="language-option" data-city="Mumbai">
+                Mumbai
+            </button>
+
+            <button class="language-option" data-city="Hyderabad">
+                Hyderabad
+            </button>
+
+            <button class="language-option" data-city="Delhi">
+                Delhi
+            </button>
+
+            <button class="language-option" data-city="Kochi">
+                Kochi
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LANGUAGE MODAL
+===================================================== -->
+
+<div class="modal" id="language-modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Select Language</h3>
+
+            <button class="modal-close"
+                    data-modal-close="language-modal">
+
+                &times;
+
+            </button>
+
+        </div>
+
+        <div class="language-options">
+
+            <button class="language-option" data-language="en">
+                English
+            </button>
+
+            <button class="language-option" data-language="ta">
+                தமிழ்
+            </button>
+
+            <button class="language-option" data-language="hi">
+                हिन्दी
+            </button>
+
+            <button class="language-option" data-language="te">
+                తెలుగు
+            </button>
+
+            <button class="language-option" data-language="kn">
+                ಕನ್ನಡ
+            </button>
+
+            <button class="language-option" data-language="ml">
+                മലയാളം
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DESTINATION SEARCH AND FILTER SCRIPT
+===================================================== -->
+
+<script src="js/main.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const searchInput =
+        document.getElementById("destination-search");
+
+    const clearButton =
+        document.getElementById("clear-destination-search");
+
+    const destinationCards =
+        document.querySelectorAll(".listing-card");
+
+    const filterButtons =
+        document.querySelectorAll("[data-filter]");
+
+    const noResults =
+        document.getElementById("no-destinations");
+
+    let activeCategory = "all";
+
+    function filterDestinations() {
+
+        const searchValue =
+            searchInput.value.trim().toLowerCase();
+
+        let visibleCount = 0;
+
+        destinationCards.forEach(card => {
+
+            const name =
+                card.dataset.name.toLowerCase();
+
+            const keywords =
+                card.dataset.search.toLowerCase();
+
+            const category =
+                card.dataset.category;
+
+            const matchesSearch =
+                name.includes(searchValue) ||
+                keywords.includes(searchValue);
+
+            const matchesCategory =
+                activeCategory === "all" ||
+                category === activeCategory;
+
+            const show =
+                matchesSearch && matchesCategory;
+
+            card.classList.toggle("hidden", !show);
+
+            if (show) {
+                visibleCount++;
+            }
+
+        });
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+
+    }
+
+
+    // CATEGORY FILTERS
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", function () {
+
+            filterButtons.forEach(item => {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+
+            activeCategory = button.dataset.filter;
+
+            filterDestinations();
+
+        });
+
+    });
+
+
+    // SEARCH
+
+    searchInput.addEventListener("input", function () {
+
+        filterDestinations();
+
+    });
+
+
+    // CLEAR SEARCH
+
+    clearButton.addEventListener("click", function () {
+
+        searchInput.value = "";
+
+        activeCategory = "all";
+
+        filterButtons.forEach(button => {
+
+            button.classList.toggle(
+                "active",
+                button.dataset.filter === "all"
+            );
+
+        });
+
+        filterDestinations();
+
+    });
+
+
+    // READ SEARCH PARAMETERS FROM HOMEPAGE
+
+    const params = new URLSearchParams(window.location.search);
+
+    const destination = params.get("destination");
+
+    if (destination) {
+
+        searchInput.value = destination;
+
+        filterDestinations();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>

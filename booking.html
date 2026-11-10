@@ -1,0 +1,1556 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>Complete Your Booking | VoyageGo</title>
+    <meta name="description" content="Book your next adventure with VoyageGo. Review your trip, add traveller details and confirm your travel booking.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================================
+           BOOKING PAGE
+        ========================================= */
+
+        .booking-page {
+            background: #fafafa;
+            padding: 45px 0 80px;
+            min-height: 70vh;
+        }
+
+        .booking-container {
+            max-width: 1160px;
+            width: 92%;
+            margin: auto;
+        }
+
+        .booking-page-heading {
+            margin-bottom: 30px;
+        }
+
+        .booking-page-heading .eyebrow {
+            color: #ff4757;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .booking-page-heading h1 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #2f3542;
+            font-size: clamp(28px, 4vw, 38px);
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .booking-page-heading p {
+            color: #858b98;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .booking-progress {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 620px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .booking-progress::before {
+            content: "";
+            position: absolute;
+            top: 17px;
+            left: 16%;
+            right: 16%;
+            height: 2px;
+            background: #e6e8ed;
+        }
+
+        .progress-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #a3a8b2;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .progress-step .step-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #e9ebef;
+            color: #818795;
+            margin: 0 auto 9px;
+            border: 3px solid #fafafa;
+            font-size: 13px;
+        }
+
+        .progress-step.active {
+            color: #ff4757;
+        }
+
+        .progress-step.active .step-circle,
+        .progress-step.completed .step-circle {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        .booking-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.55fr) minmax(300px, 0.85fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        .booking-main {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .booking-card {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 22px rgba(35,40,55,0.035);
+        }
+
+        .booking-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 22px;
+        }
+
+        .booking-card-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 11px;
+            background: #fff0f1;
+            color: #ff4757;
+            font-size: 17px;
+            flex-shrink: 0;
+        }
+
+        .booking-card-header h2 {
+            color: #2f3542;
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .booking-card-header p {
+            color: #969ba6;
+            font-size: 12px;
+        }
+
+        /* Trip item */
+
+        .booking-trip {
+            display: grid;
+            grid-template-columns: 125px 1fr auto;
+            gap: 17px;
+            align-items: center;
+        }
+
+        .booking-trip-image {
+            width: 125px;
+            height: 110px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #f0f0f0;
+        }
+
+        .booking-trip-details h3 {
+            color: #2f3542;
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .booking-trip-details p {
+            color: #858b98;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+
+        .booking-trip-details p i {
+            color: #ff4757;
+            width: 17px;
+        }
+
+        .booking-trip-price {
+            text-align: right;
+        }
+
+        .booking-trip-price strong {
+            display: block;
+            color: #2f3542;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .booking-trip-price span {
+            color: #9ca1ab;
+            font-size: 11px;
+        }
+
+        .booking-remove {
+            display: inline-block;
+            margin-top: 9px;
+            border: none;
+            background: transparent;
+            color: #e14c58;
+            font-size: 11px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .booking-divider {
+            height: 1px;
+            background: #edf0f3;
+            margin: 20px 0;
+        }
+
+        .booking-trip-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            color: #747b89;
+            font-size: 12px;
+        }
+
+        .booking-trip-meta i {
+            color: #ff4757;
+            margin-right: 6px;
+        }
+
+        /* Empty state */
+
+        .booking-empty {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .booking-empty i {
+            font-size: 38px;
+            color: #ff4757;
+            margin-bottom: 16px;
+        }
+
+        .booking-empty h3 {
+            color: #2f3542;
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .booking-empty p {
+            color: #858b98;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        /* Forms */
+
+        .booking-form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+        }
+
+        .booking-field {
+            margin-bottom: 17px;
+        }
+
+        .booking-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .booking-field label {
+            display: block;
+            color: #3e4552;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .booking-field label span {
+            color: #ff4757;
+        }
+
+        .booking-input {
+            width: 100%;
+            height: 47px;
+            padding: 0 13px;
+            border: 1px solid #e4e7ec;
+            border-radius: 9px;
+            outline: none;
+            color: #2f3542;
+            font-family: inherit;
+            font-size: 13px;
+            background: #fff;
+            transition: 0.25s;
+        }
+
+        .booking-input:focus {
+            border-color: #ff4757;
+            box-shadow: 0 0 0 3px rgba(255,71,87,0.08);
+        }
+
+        .booking-input::placeholder {
+            color: #b0b5bf;
+        }
+
+        textarea.booking-input {
+            height: 95px;
+            resize: vertical;
+            padding-top: 12px;
+        }
+
+        .booking-input:disabled {
+            background: #f5f6f8;
+            cursor: not-allowed;
+        }
+
+        /* Traveller count */
+
+        .traveller-count-control {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #e7e9ee;
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 16px;
+        }
+
+        .traveller-count-info strong {
+            display: block;
+            font-size: 13px;
+            color: #3d4350;
+            margin-bottom: 4px;
+        }
+
+        .traveller-count-info span {
+            color: #9a9faa;
+            font-size: 11px;
+        }
+
+        .traveller-counter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .traveller-counter button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #e4e7ec;
+            background: #fff;
+            color: #ff4757;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .traveller-counter button:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .traveller-counter strong {
+            min-width: 15px;
+            text-align: center;
+            color: #2f3542;
+        }
+
+        .traveller-person {
+            border: 1px solid #eceef2;
+            border-radius: 11px;
+            padding: 17px;
+            margin-top: 13px;
+        }
+
+        .traveller-person h4 {
+            color: #2f3542;
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        .traveller-person .booking-form-grid {
+            gap: 12px;
+        }
+
+        /* Promo */
+
+        .promo-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .promo-row input {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .promo-apply {
+            padding: 0 20px;
+            border: 1px solid #ff4757;
+            border-radius: 9px;
+            background: #fff;
+            color: #ff4757;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .promo-apply:hover {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        .promo-message {
+            font-size: 11px;
+            margin-top: 9px;
+            min-height: 15px;
+        }
+
+        /* Sidebar */
+
+        .booking-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .booking-summary {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 5px 22px rgba(35,40,55,0.035);
+        }
+
+        .booking-summary h2 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #2f3542;
+            margin-bottom: 20px;
+        }
+
+        .summary-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: #858b98;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .summary-row strong {
+            color: #3d4350;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .summary-row.discount strong {
+            color: #20965b;
+        }
+
+        .summary-total {
+            border-top: 1px dashed #e4e7ec;
+            padding-top: 18px;
+            margin-top: 18px;
+        }
+
+        .summary-total .summary-row {
+            align-items: center;
+            margin-bottom: 0;
+        }
+
+        .summary-total .summary-row span {
+            color: #2f3542;
+            font-weight: 800;
+            font-size: 14px;
+        }
+
+        .summary-total .summary-row strong {
+            color: #ff4757;
+            font-size: 23px;
+            font-weight: 800;
+        }
+
+        .summary-note {
+            color: #9a9faa;
+            font-size: 10px;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+
+        .booking-confirm-btn {
+            width: 100%;
+            height: 51px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4757;
+            color: #fff;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 22px;
+            transition: 0.3s;
+        }
+
+        .booking-confirm-btn:hover {
+            background: #e73c4d;
+            transform: translateY(-2px);
+        }
+
+        .booking-confirm-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .booking-security {
+            display: flex;
+            align-items: flex-start;
+            gap: 11px;
+            padding: 15px;
+            background: #f5fbf7;
+            border-radius: 10px;
+            margin-top: 17px;
+        }
+
+        .booking-security i {
+            color: #279a5d;
+            font-size: 17px;
+        }
+
+        .booking-security strong {
+            display: block;
+            color: #3e6951;
+            font-size: 11px;
+            margin-bottom: 4px;
+        }
+
+        .booking-security p {
+            color: #7f9b88;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        /* Confirmation */
+
+        .booking-success {
+            display: none;
+            max-width: 650px;
+            margin: 30px auto;
+            text-align: center;
+            padding: 45px 30px;
+            border-radius: 18px;
+            background: #fff;
+            border: 1px solid #eceef2;
+            box-shadow: 0 10px 35px rgba(35,40,55,0.06);
+        }
+
+        .booking-success.show {
+            display: block;
+            animation: bookingSuccessIn 0.5s ease;
+        }
+
+        @keyframes bookingSuccessIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 75px;
+            height: 75px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #eaf8ef;
+            color: #20965b;
+            font-size: 30px;
+            margin: 0 auto 22px;
+        }
+
+        .booking-success h2 {
+            color: #2f3542;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .booking-success > p {
+            color: #858b98;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .success-booking-id {
+            display: inline-block;
+            background: #fff4f4;
+            color: #ff4757;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-weight: 800;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        .success-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .success-actions a,
+        .success-actions button {
+            padding: 13px 20px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .success-dashboard {
+            background: #ff4757;
+            color: #fff;
+            border: 1px solid #ff4757;
+        }
+
+        .success-home {
+            background: #fff;
+            color: #3d4350;
+            border: 1px solid #e5e7eb;
+        }
+
+        .booking-alert {
+            display: none;
+            background: #fff0f0;
+            color: #c83d48;
+            border: 1px solid #f5d1d4;
+            border-radius: 9px;
+            padding: 12px 14px;
+            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .booking-alert.show {
+            display: block;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+            .booking-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-sidebar {
+                position: static;
+            }
+
+            .booking-summary {
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .booking-page {
+                padding: 30px 0 50px;
+            }
+
+            .booking-container {
+                width: 94%;
+            }
+
+            .booking-card {
+                padding: 18px;
+            }
+
+            .booking-trip {
+                grid-template-columns: 90px 1fr;
+                gap: 12px;
+            }
+
+            .booking-trip-image {
+                width: 90px;
+                height: 90px;
+            }
+
+            .booking-trip-price {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .booking-trip-price strong {
+                display: inline-block;
+                font-size: 16px;
+            }
+
+            .booking-trip-price span {
+                margin-left: 5px;
+            }
+
+            .booking-form-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .booking-field.full {
+                grid-column: auto;
+            }
+
+            .booking-progress {
+                margin-bottom: 25px;
+            }
+
+            .progress-step {
+                font-size: 9px;
+            }
+
+            .progress-step .step-circle {
+                width: 32px;
+                height: 32px;
+            }
+
+            .booking-trip-meta {
+                gap: 10px;
+            }
+
+            .booking-summary {
+                padding: 20px;
+            }
+
+            .booking-success {
+                padding: 35px 18px;
+            }
+
+            .booking-success h2 {
+                font-size: 22px;
+            }
+
+            .promo-row {
+                flex-direction: column;
+            }
+
+            .promo-apply {
+                height: 43px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .booking-success,
+            .booking-confirm-btn {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><span class="logo-mark"><i class="fa-solid fa-earth-americas"></i></span>Voyage<span class="text-primary">Go</span></a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="tourist.html">Destinations</a><a href="packages.html">Packages</a><a href="dashboard.html">Dashboard</a>
+            </nav>
+            <a class="btn btn-outline btn-sm" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+
+
+    <!-- MOBILE DRAWER -->
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <aside class="mobile-drawer" id="mobileDrawer">
+
+        <div class="drawer-header">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-earth-americas text-primary"></i>
+                Voyage<span class="text-primary">Go</span>
+            </a>
+
+            <button type="button" id="closeDrawer" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <nav class="drawer-nav">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="tourist.html"><i class="fa-solid fa-map-location-dot"></i> Destinations</a>
+            <a href="packages.html"><i class="fa-solid fa-box"></i> Packages</a>
+            <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <a href="booking.html" class="active"><i class="fa-solid fa-suitcase"></i> My Booking</a>
+            <a href="login.html"><i class="fa-solid fa-user"></i> Login / Sign Up</a>
+        </nav>
+
+        <a href="tourist.html" class="btn btn-primary btn-block">
+            Explore Destinations
+        </a>
+
+    </aside>
+
+
+    <!-- BOOKING MAIN -->
+
+    <main class="booking-page">
+
+        <div class="booking-container">
+
+            <div class="booking-page-heading">
+                <a href="index.html" class="booking-back-home"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+                <div class="eyebrow">Your Adventure Awaits</div>
+                <h1>Complete Your Booking</h1>
+                <p>Review your trip details and provide your traveller information.</p>
+            </div>
+
+
+            <!-- PROGRESS -->
+
+            <div class="booking-progress">
+
+                <div class="progress-step completed">
+                    <div class="step-circle">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    Your Trip
+                </div>
+
+                <div class="progress-step active">
+                    <div class="step-circle">2</div>
+                    Traveller Details
+                </div>
+
+                <div class="progress-step">
+                    <div class="step-circle">3</div>
+                    Confirmation
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING CONTENT -->
+
+            <div id="bookingContent">
+
+                <form id="bookingForm" novalidate>
+
+                    <div class="booking-layout">
+
+                        <!-- LEFT COLUMN -->
+
+                        <div class="booking-main">
+
+
+                            <!-- TRIP DETAILS -->
+
+                            <section class="booking-card">
+
+                                <div class="booking-card-header">
+
+                                    <div class="booking-card-icon">
+                                        <i class="fa-solid fa-map-location-dot"></i>
+                                    </div>
+
+                                    <div>
+                                        <h2>Your Selected Trip</h2>
+                                        <p>Review your destination or package.</p>
+                                    </div>
+
+                                </div>
+
+                                <div id="bookingItems">
+
+                                    <div class="booking-empty">
+                                        <i class="fa-solid fa-suitcase-rolling"></i>
+                                        <h3>No trip selected yet</h3>
+                                        <p>Explore destinations or packages and add a trip to your booking.</p>
+                                        <a href="tourist.html" class="btn btn-primary">
+                                            Explore Destinations
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- TRAVEL DATES -->
+
+                            <section class="booking-card">
+
+                                <div class="booking-card-header">
+
+                                    <div class="booking-card-icon">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                    </div>
+
+                                    <div>
+                                        <h2>Travel Information</h2>
+                                        <p>Select your preferred travel dates.</p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="booking-form-grid">
+
+                                    <div class="booking-field">
+                                        <label for="departureDate">
+                                            Departure Date <span>*</span>
+                                        </label>
+
+                                        <input type="date"
+                                            id="departureDate"
+                                            class="booking-input"
+                                            required>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="returnDate">
+                                            Return Date <span>*</span>
+                                        </label>
+
+                                        <input type="date"
+                                            id="returnDate"
+                                            class="booking-input"
+                                            required>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="travelType">
+                                            Travel Type
+                                        </label>
+
+                                        <select id="travelType"
+                                            class="booking-input">
+
+                                            <option value="Leisure">Leisure</option>
+                                            <option value="Adventure">Adventure</option>
+                                            <option value="Family Trip">Family Trip</option>
+                                            <option value="Honeymoon">Honeymoon</option>
+                                            <option value="Business">Business</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="departureCity">
+                                            Departure City <span>*</span>
+                                        </label>
+
+                                        <input type="text"
+                                            id="departureCity"
+                                            class="booking-input"
+                                            placeholder="Example: Chennai"
+                                            value="Chennai"
+                                            required>
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- TRAVELLERS -->
+
+                            <section class="booking-card">
+
+                                <div class="booking-card-header">
+
+                                    <div class="booking-card-icon">
+                                        <i class="fa-solid fa-users"></i>
+                                    </div>
+
+                                    <div>
+                                        <h2>Traveller Details</h2>
+                                        <p>Tell us who is travelling.</p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="traveller-count-control">
+
+                                    <div class="traveller-count-info">
+                                        <strong>Number of Travellers</strong>
+                                        <span>Maximum 10 travellers per booking</span>
+                                    </div>
+
+                                    <div class="traveller-counter">
+
+                                        <button type="button"
+                                            id="decreaseTravellers"
+                                            aria-label="Decrease travellers">
+                                            −
+                                        </button>
+
+                                        <strong id="travellerCount">1</strong>
+
+                                        <button type="button"
+                                            id="increaseTravellers"
+                                            aria-label="Increase travellers">
+                                            +
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div id="travellerForms">
+
+                                    <div class="traveller-person">
+                                        <h4>Traveller 1 – Primary Traveller</h4>
+
+                                        <div class="booking-form-grid">
+
+                                            <div class="booking-field">
+                                                <label>Full Name <span>*</span></label>
+
+                                                <input type="text"
+                                                    name="travellerName"
+                                                    class="booking-input"
+                                                    placeholder="Enter full name"
+                                                    required>
+                                            </div>
+
+                                            <div class="booking-field">
+                                                <label>Age <span>*</span></label>
+
+                                                <input type="number"
+                                                    name="travellerAge"
+                                                    class="booking-input"
+                                                    placeholder="Age"
+                                                    min="1"
+                                                    max="110"
+                                                    required>
+                                            </div>
+
+                                            <div class="booking-field full">
+                                                <label>Gender</label>
+
+                                                <select name="travellerGender"
+                                                    class="booking-input">
+                                                    <option value="">Select gender</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                    <option value="Other">Other</option>
+                                                    <option value="Prefer not to say">Prefer not to say</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- CONTACT DETAILS -->
+
+                            <section class="booking-card">
+
+                                <div class="booking-card-header">
+
+                                    <div class="booking-card-icon">
+                                        <i class="fa-regular fa-address-card"></i>
+                                    </div>
+
+                                    <div>
+                                        <h2>Contact Information</h2>
+                                        <p>Where should we send your booking updates?</p>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="booking-form-grid">
+
+                                    <div class="booking-field">
+                                        <label for="contactName">
+                                            Contact Name <span>*</span>
+                                        </label>
+
+                                        <input type="text"
+                                            id="contactName"
+                                            class="booking-input"
+                                            placeholder="Enter your name"
+                                            required>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="contactEmail">
+                                            Email Address <span>*</span>
+                                        </label>
+
+                                        <input type="email"
+                                            id="contactEmail"
+                                            class="booking-input"
+                                            placeholder="name@example.com"
+                                            required>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="contactPhone">
+                                            Phone Number <span>*</span>
+                                        </label>
+
+                                        <input type="tel"
+                                            id="contactPhone"
+                                            class="booking-input"
+                                            placeholder="+91 98765 43210"
+                                            pattern="[0-9+\-\s()]{7,18}"
+                                            required>
+                                    </div>
+
+                                    <div class="booking-field">
+                                        <label for="contactCountry">
+                                            Country
+                                        </label>
+
+                                        <select id="contactCountry"
+                                            class="booking-input">
+
+                                            <option value="India">India</option>
+                                            <option value="United States">United States</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Singapore">Singapore</option>
+                                            <option value="Other">Other</option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="booking-field full">
+                                        <label for="specialRequest">
+                                            Special Requests (Optional)
+                                        </label>
+
+                                        <textarea id="specialRequest"
+                                            class="booking-input"
+                                            placeholder="Tell us about any special requirements..."></textarea>
+                                    </div>
+
+                                </div>
+
+                            </section>
+
+
+                            <!-- PROMO CODE -->
+
+                            <section class="booking-card">
+
+                                <div class="booking-card-header">
+
+                                    <div class="booking-card-icon">
+                                        <i class="fa-solid fa-ticket"></i>
+                                    </div>
+
+                                    <div>
+                                        <h2>Apply Promo Code</h2>
+                                        <p>Enter a discount code if you have one.</p>
+                                    </div>
+
+                                </div>
+
+                                <div class="promo-row">
+
+                                    <input type="text"
+                                        id="promoCode"
+                                        class="booking-input"
+                                        placeholder="Enter promo code">
+
+                                    <button type="button"
+                                        class="promo-apply"
+                                        id="applyPromo">
+                                        Apply Code
+                                    </button>
+
+                                </div>
+
+                                <p class="promo-message" id="promoMessage"
+                                    aria-live="polite"></p>
+
+                                <p style="font-size:11px;color:#969ba6;margin-top:8px;">
+                                    Demo promo code: <strong>VOYAGE10</strong> for 10% off.
+                                </p>
+
+                            </section>
+
+
+                            <!-- TERMS -->
+
+                            <section class="booking-card">
+
+                                <label style="display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#747b89;line-height:1.7;cursor:pointer;">
+
+                                    <input type="checkbox"
+                                        id="bookingTerms"
+                                        required
+                                        style="margin-top:3px;accent-color:#ff4757;">
+
+                                    <span>
+                                        I confirm that the information provided is correct
+                                        and agree to the
+                                        <a href="terms.html"
+                                            style="color:#ff4757;font-weight:700;">
+                                            Terms & Conditions
+                                        </a>
+                                        and booking policies.
+                                    </span>
+
+                                </label>
+
+                            </section>
+
+                        </div>
+
+
+                        <!-- RIGHT SIDEBAR -->
+
+                        <aside class="booking-sidebar">
+
+                            <div class="booking-summary">
+
+                                <h2>Booking Summary</h2>
+
+                                <div class="summary-row">
+                                    <span>Selected Trips</span>
+                                    <strong id="summaryTripCount">0</strong>
+                                </div>
+
+                                <div class="summary-row">
+                                    <span>Travellers</span>
+                                    <strong id="summaryTravellers">1</strong>
+                                </div>
+
+                                <div class="summary-row">
+                                    <span>Travel Amount</span>
+                                    <strong id="summarySubtotal">₹0</strong>
+                                </div>
+
+                                <div class="summary-row">
+                                    <span>Taxes & Fees (5%)</span>
+                                    <strong id="summaryTax">₹0</strong>
+                                </div>
+
+                                <div class="summary-row discount">
+                                    <span>Discount</span>
+                                    <strong id="summaryDiscount">− ₹0</strong>
+                                </div>
+
+                                <div class="summary-total">
+
+                                    <div class="summary-row">
+                                        <span>Total Amount</span>
+                                        <strong id="summaryTotal">₹0</strong>
+                                    </div>
+
+                                    <p class="summary-note">
+                                        Final amount is an estimated demo calculation.
+                                        Actual travel prices and taxes must be confirmed
+                                        by your booking provider.
+                                    </p>
+
+                                </div>
+
+
+                                <div class="booking-alert" id="bookingAlert"
+                                    role="alert"></div>
+
+
+                                <button type="submit"
+                                    class="booking-confirm-btn"
+                                    id="confirmBookingBtn"
+                                    form="bookingForm">
+                                    Confirm Booking
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+
+
+                                <div class="booking-security">
+
+                                    <i class="fa-solid fa-shield-halved"></i>
+
+                                    <div>
+                                        <strong>Your Information</strong>
+                                        <p>
+                                            Your booking details are stored in this
+                                            browser demo. No payment is collected here.
+                                        </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </aside>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- BOOKING SUCCESS -->
+
+            <section class="booking-success" id="bookingSuccess">
+
+                <div class="success-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <h2>Your Booking Request is Saved!</h2>
+
+                <p>
+                    Thank you for choosing VoyageGo. Your demo booking
+                    details have been saved in this browser.
+                </p>
+
+                <div class="success-booking-id" id="successBookingId">
+                    Booking ID: VG000000
+                </div>
+
+                <p id="successBookingDetails"></p>
+
+                <div class="success-actions">
+
+                    <a href="dashboard.html" class="success-dashboard">
+                        View My Dashboard
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="index.html" class="success-home">
+                        Back to Home
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-about">
+
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        Voyage<span class="text-primary">Go</span>
+                    </a>
+
+                    <p>
+                        Discover the world with VoyageGo. Explore amazing
+                        destinations and create memories that last forever.
+                    </p>
+
+                    <div class="footer-socials">
+                        <a href="https://www.instagram.com/"
+                            target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/"
+                            target="_blank" rel="noopener" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://x.com/"
+                            target="_blank" rel="noopener" aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/"
+                            target="_blank" rel="noopener" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="index.html">Home</a>
+                    <a href="tourist.html">Destinations</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+
+                <div class="footer-links">
+                    <h4>Customer Care</h4>
+                    <a href="dashboard.html">My Profile</a>
+                    <a href="booking.html">My Bookings</a>
+                    <a href="contact.html#faq">FAQs & Support</a>
+                    <a href="contact.html">Help Center</a>
+                    <a href="login.html">Login / Sign Up</a>
+                </div>
+
+
+                <div class="footer-links footer-contact">
+                    <h4>Get in Touch</h4>
+
+                    <a href="mailto:hello@voyagego.example">
+                        <i class="fa-regular fa-envelope"></i>
+                        hello@voyagego.example
+                    </a>
+
+                    <a href="tel:+919876543210">
+                        <i class="fa-solid fa-phone"></i>
+                        +91 98765 43210
+                    </a>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Chennai, Tamil Nadu, India
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span data-current-year></span>
+                    VoyageGo. All Rights Reserved.
+                </p>
+
+                <div>
+                    <a href="terms.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- LOCATION MODAL -->
+
+    <div class="modal" id="locationModal" aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button class="modal-close" type="button"
+                data-modal-close aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3>Select Your Location</h3>
+
+            <p>
+                Allow location access to find destinations near you.
+            </p>
+
+            <button type="button"
+                class="btn btn-primary btn-block"
+                id="detectLocation">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                Detect My Location
+            </button>
+
+            <p id="locationMessage" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LANGUAGE MODAL -->
+
+    <div class="modal" id="languageModal" aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button class="modal-close" type="button"
+                data-modal-close aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3>Select Language</h3>
+
+            <div class="language-options">
+                <button type="button" data-language="en">English</button>
+                <button type="button" data-language="ta">தமிழ்</button>
+                <button type="button" data-language="hi">हिन्दी</button>
+                <button type="button" data-language="te">తెలుగు</button>
+                <button type="button" data-language="kn">ಕನ್ನಡ</button>
+                <button type="button" data-language="ml">മലയാളം</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- COMMON JAVASCRIPT -->
+
+    <script src="js/main.js"></script>
+
+
+    <!-- BOOKING JAVASCRIPT -->
+
+    <script src="js/booking.js"></script>
+
+</body>
+</html>

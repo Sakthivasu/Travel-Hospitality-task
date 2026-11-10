@@ -1,0 +1,1818 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>My Dashboard | VoyageGo</title>
+    <meta name="description" content="Manage your VoyageGo travel profile, view your bookings and track your upcoming adventures.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* =========================================
+           DASHBOARD BASE
+        ========================================= */
+
+        .dashboard-page {
+            background: #f8f9fb;
+            min-height: 100vh;
+            padding: 35px 0 75px;
+        }
+
+        body.dashboard-dark { --dashboard-surface:#202633; --dashboard-ink:#f4f6fa; --dashboard-muted:#b3bac7; background:#171c25; }
+        body.dashboard-dark .dashboard-page { background:#171c25; }
+        body.dashboard-dark .dashboard-panel,
+        body.dashboard-dark .dashboard-sidebar,
+        body.dashboard-dark .dashboard-stat-card,
+        body.dashboard-dark .dashboard-content-header,
+        body.dashboard-dark .profile-mini { background:var(--dashboard-surface); border-color:#343c4a; }
+        body.dashboard-dark .dashboard-section h2,
+        body.dashboard-dark .dashboard-section h3,
+        body.dashboard-dark .profile-mini h3,
+        body.dashboard-dark .dashboard-stat-card p { color:var(--dashboard-ink)!important; }
+
+        .dashboard-container {
+            width: 94%;
+            max-width: 1280px;
+            margin: auto;
+        }
+
+        .dashboard-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-heading .eyebrow {
+            color: #ff4757;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .dashboard-heading h1 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            color: #2f3542;
+            font-size: clamp(25px, 4vw, 34px);
+            font-weight: 800;
+            margin-bottom: 7px;
+        }
+
+        .dashboard-heading p {
+            color: #858b98;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .dashboard-heading-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-heading-actions a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 17px;
+            border-radius: 9px;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 800;
+            transition: 0.25s;
+        }
+
+        .dashboard-explore {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        .dashboard-explore:hover {
+            background: #e63d4c;
+            transform: translateY(-2px);
+        }
+
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 250px minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        /* =========================================
+           SIDEBAR
+        ========================================= */
+
+        .dashboard-sidebar {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 16px;
+            padding: 22px 16px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .profile-mini {
+            text-align: center;
+            padding: 10px 10px 22px;
+            border-bottom: 1px solid #edf0f3;
+            margin-bottom: 17px;
+        }
+
+        .profile-avatar {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 12px;
+            background: #fff0f1;
+            color: #ff4757;
+            font-size: 26px;
+            font-weight: 800;
+            overflow: hidden;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-mini h3 {
+            color: #2f3542;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .profile-mini p {
+            color: #9ba0aa;
+            font-size: 11px;
+            word-break: break-word;
+        }
+
+        .profile-member {
+            display: inline-block;
+            margin-top: 10px;
+            background: #fff2f3;
+            color: #ff4757;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        .dashboard-nav-title {
+            color: #a1a6b0;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.2px;
+            padding: 0 12px;
+            margin: 19px 0 9px;
+            text-transform: uppercase;
+        }
+
+        .dashboard-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .dashboard-nav button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border: none;
+            border-radius: 9px;
+            background: transparent;
+            color: #858b98;
+            text-align: left;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .dashboard-nav button i {
+            width: 18px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .dashboard-nav button:hover,
+        .dashboard-nav button.active {
+            background: #fff0f1;
+            color: #ff4757;
+        }
+
+        .dashboard-nav button .nav-count {
+            margin-left: auto;
+            background: #f0f1f4;
+            color: #747b89;
+            border-radius: 20px;
+            min-width: 21px;
+            height: 21px;
+            display: grid;
+            place-items: center;
+            font-size: 10px;
+        }
+
+        .dashboard-nav button.active .nav-count {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        .dashboard-logout {
+            border-top: 1px solid #edf0f3;
+            margin-top: 18px;
+            padding-top: 17px;
+        }
+
+        .dashboard-logout button {
+            color: #e14c58;
+        }
+
+        .dashboard-logout button:hover {
+            background: #fff0f0;
+            color: #c83c48;
+        }
+
+        /* =========================================
+           DASHBOARD MAIN
+        ========================================= */
+
+        .dashboard-main {
+            min-width: 0;
+        }
+
+        .dashboard-section {
+            display: none;
+            animation: dashboardFade 0.3s ease;
+        }
+
+        .dashboard-section.active {
+            display: block;
+        }
+
+        @keyframes dashboardFade {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dashboard-welcome {
+            background:
+                linear-gradient(110deg, rgba(34,40,55,0.94), rgba(53,61,79,0.78)),
+                url("img/chris-karidis-nnzkZNYWHaU-unsplash.webp")
+                center/cover no-repeat;
+            border-radius: 16px;
+            padding: 30px;
+            color: #fff;
+            margin-bottom: 23px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-welcome::after {
+            content: "\f072";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 35px;
+            bottom: -20px;
+            font-size: 125px;
+            color: rgba(255,255,255,0.08);
+            transform: rotate(-20deg);
+        }
+
+        .dashboard-welcome .welcome-label {
+            display: inline-block;
+            padding: 6px 11px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 13px;
+        }
+
+        .dashboard-welcome h2 {
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: clamp(22px, 3vw, 30px);
+            font-weight: 800;
+            margin-bottom: 9px;
+        }
+
+        .dashboard-welcome h2 span {
+            color: #ff7b85;
+        }
+
+        .dashboard-welcome p {
+            color: rgba(255,255,255,0.8);
+            font-size: 12px;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        /* =========================================
+           STATISTICS
+        ========================================= */
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .dashboard-stat-card {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 13px;
+            padding: 18px;
+            min-width: 0;
+        }
+
+        .dashboard-stat-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-stat-icon {
+            width: 38px;
+            height: 38px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        .stat-red {
+            color: #ff4757;
+            background: #fff0f1;
+        }
+
+        .stat-blue {
+            color: #4385e5;
+            background: #eef5ff;
+        }
+
+        .stat-green {
+            color: #29985e;
+            background: #eaf8ef;
+        }
+
+        .stat-purple {
+            color: #8b69dc;
+            background: #f3efff;
+        }
+
+        .dashboard-stat-card .stat-number {
+            color: #2f3542;
+            font-family: "Plus Jakarta Sans", sans-serif;
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .dashboard-stat-card p {
+            color: #9399a5;
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        /* =========================================
+           SECTION HEADERS
+        ========================================= */
+
+        .dashboard-content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 17px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-content-header h2 {
+            color: #2f3542;
+            font-size: 18px;
+            font-weight: 800;
+        }
+
+        .dashboard-content-header p {
+            color: #999eaa;
+            font-size: 11px;
+            margin-top: 5px;
+        }
+
+        .dashboard-view-all {
+            border: none;
+            background: transparent;
+            color: #ff4757;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        /* =========================================
+           BOOKING LIST
+        ========================================= */
+
+        .dashboard-booking-list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+
+        .dashboard-booking-card {
+            display: grid;
+            grid-template-columns: 125px minmax(0, 1fr) auto;
+            gap: 17px;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 13px;
+            padding: 15px;
+            transition: 0.25s;
+        }
+
+        .dashboard-booking-card:hover {
+            border-color: #ffd2d6;
+            box-shadow: 0 6px 20px rgba(35,40,55,0.05);
+            transform: translateY(-2px);
+        }
+
+        .dashboard-booking-image {
+            width: 125px;
+            height: 105px;
+            object-fit: cover;
+            border-radius: 10px;
+            background: #f0f0f0;
+        }
+
+        .dashboard-booking-info h3 {
+            color: #2f3542;
+            font-size: 14px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            overflow-wrap: anywhere;
+        }
+
+        .dashboard-booking-info p {
+            color: #8c929e;
+            font-size: 10px;
+            margin-bottom: 6px;
+        }
+
+        .dashboard-booking-info p i {
+            width: 15px;
+            color: #ff4757;
+        }
+
+        .booking-id {
+            color: #a0a5af;
+            font-size: 10px;
+            margin-top: 9px;
+        }
+
+        .dashboard-booking-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 9px;
+        }
+
+        .booking-price {
+            color: #2f3542;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .booking-status {
+            display: inline-block;
+            padding: 6px 9px;
+            border-radius: 20px;
+            font-size: 9px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .status-confirmed {
+            color: #21844a;
+            background: #eaf8ef;
+        }
+
+        .status-pending {
+            color: #a87512;
+            background: #fff6df;
+        }
+
+        .status-cancelled {
+            color: #c83d48;
+            background: #fff0f0;
+        }
+
+        .status-completed {
+            color: #3975c6;
+            background: #edf4ff;
+        }
+
+        .status-demo {
+            color: #8a65ce;
+            background: #f3efff;
+        }
+
+        .booking-action-buttons {
+            display: flex;
+            gap: 6px;
+        }
+
+        .booking-action-buttons button {
+            width: 31px;
+            height: 31px;
+            border: 1px solid #e9ebef;
+            border-radius: 8px;
+            background: #fff;
+            color: #747b89;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .booking-action-buttons button:hover {
+            color: #ff4757;
+            border-color: #ff4757;
+        }
+
+        /* =========================================
+           EMPTY STATE
+        ========================================= */
+
+        .dashboard-empty {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 14px;
+            padding: 45px 20px;
+            text-align: center;
+        }
+
+        .dashboard-empty .empty-icon {
+            width: 65px;
+            height: 65px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #fff0f1;
+            color: #ff4757;
+            font-size: 24px;
+            margin: 0 auto 15px;
+        }
+
+        .dashboard-empty h3 {
+            color: #2f3542;
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .dashboard-empty p {
+            color: #9298a4;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-bottom: 18px;
+        }
+
+        .dashboard-empty a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 17px;
+            background: #ff4757;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        /* =========================================
+           PROFILE
+        ========================================= */
+
+        .dashboard-panel {
+            background: #fff;
+            border: 1px solid #eceef2;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .profile-edit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+        }
+
+        .profile-field {
+            margin-bottom: 14px;
+        }
+
+        .profile-field.full {
+            grid-column: 1 / -1;
+        }
+
+        .profile-field label {
+            display: block;
+            color: #3e4552;
+            font-size: 11px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .profile-field input,
+        .profile-field textarea {
+            width: 100%;
+            height: 44px;
+            border: 1px solid #e4e7ec;
+            border-radius: 8px;
+            padding: 0 12px;
+            font-family: inherit;
+            font-size: 12px;
+            outline: none;
+            color: #2f3542;
+        }
+
+        .profile-field textarea {
+            height: 85px;
+            padding-top: 12px;
+            resize: vertical;
+        }
+
+        .profile-field input:focus,
+        .profile-field textarea:focus {
+            border-color: #ff4757;
+            box-shadow: 0 0 0 3px rgba(255,71,87,0.07);
+        }
+
+        .profile-save-btn {
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            background: #ff4757;
+            color: #fff;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .profile-save-btn:hover {
+            background: #e63d4c;
+        }
+
+        .profile-note {
+            color: #999eaa;
+            font-size: 10px;
+            line-height: 1.7;
+            margin-top: 12px;
+        }
+
+        /* =========================================
+           DETAILS MODAL
+        ========================================= */
+
+        .dashboard-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            padding: 20px;
+            background: rgba(23,28,40,0.65);
+            backdrop-filter: blur(4px);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dashboard-modal.show {
+            display: flex;
+        }
+
+        .dashboard-modal-content {
+            width: 100%;
+            max-width: 610px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 25px;
+            background: #fff;
+            border-radius: 16px;
+            animation: dashboardFade 0.25s ease;
+        }
+
+        .dashboard-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-modal-header h3 {
+            color: #2f3542;
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .dashboard-modal-close {
+            width: 34px;
+            height: 34px;
+            border: none;
+            border-radius: 50%;
+            background: #f2f3f5;
+            color: #747b89;
+            cursor: pointer;
+        }
+
+        .detail-group {
+            padding: 15px 0;
+            border-bottom: 1px solid #edf0f3;
+        }
+
+        .detail-group h4 {
+            color: #ff4757;
+            font-size: 11px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 10px;
+            font-size: 11px;
+        }
+
+        .detail-row span {
+            color: #9399a5;
+        }
+
+        .detail-row strong {
+            color: #3d4350;
+            text-align: right;
+            overflow-wrap: anywhere;
+        }
+
+        .modal-booking-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .modal-booking-actions button {
+            flex: 1;
+            min-width: 110px;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            color: #3d4350;
+            font-family: inherit;
+            font-size: 11px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        .modal-booking-actions .modal-primary {
+            color: #fff;
+            background: #ff4757;
+            border-color: #ff4757;
+        }
+
+        /* =========================================
+           NOTIFICATION
+        ========================================= */
+
+        .dashboard-toast {
+            position: fixed;
+            z-index: 10001;
+            right: 22px;
+            bottom: 22px;
+            max-width: 340px;
+            padding: 14px 18px;
+            background: #263143;
+            color: #fff;
+            border-radius: 10px;
+            font-size: 12px;
+            line-height: 1.6;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(15px);
+            transition: 0.25s;
+        }
+
+        .dashboard-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           FILTERS
+        ========================================= */
+
+        .booking-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 17px;
+        }
+
+        .booking-filter {
+            padding: 9px 14px;
+            border: 1px solid #e5e7eb;
+            border-radius: 30px;
+            background: #fff;
+            color: #858b98;
+            font-family: inherit;
+            font-size: 10px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .booking-filter.active,
+        .booking-filter:hover {
+            background: #ff4757;
+            border-color: #ff4757;
+            color: #fff;
+        }
+
+        /* =========================================
+           RESPONSIVE
+        ========================================= */
+
+        @media (max-width: 1050px) {
+            .dashboard-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-sidebar {
+                position: static;
+                padding: 15px;
+            }
+
+            .profile-mini {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 13px;
+                padding: 5px 5px 15px;
+            }
+
+            .profile-avatar {
+                width: 48px;
+                height: 48px;
+                font-size: 17px;
+                margin: 0;
+                flex-shrink: 0;
+            }
+
+            .profile-member {
+                display: none;
+            }
+
+            .profile-mini-info {
+                min-width: 0;
+            }
+
+            .dashboard-nav-title {
+                display: none;
+            }
+
+            .dashboard-nav {
+                flex-direction: row;
+                overflow-x: auto;
+                padding-bottom: 4px;
+            }
+
+            .dashboard-nav button {
+                width: auto;
+                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .dashboard-nav button .nav-count {
+                margin-left: 0;
+            }
+
+            .dashboard-logout {
+                border: none;
+                margin-top: 10px;
+                padding-top: 0;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .dashboard-page {
+                padding: 25px 0 50px;
+            }
+
+            .dashboard-container {
+                width: 94%;
+            }
+
+            .dashboard-welcome {
+                padding: 23px 20px;
+            }
+
+            .dashboard-stats {
+                gap: 9px;
+            }
+
+            .dashboard-stat-card {
+                padding: 13px;
+            }
+
+            .dashboard-stat-card .stat-number {
+                font-size: 21px;
+            }
+
+            .dashboard-booking-card {
+                grid-template-columns: 85px minmax(0, 1fr);
+                gap: 12px;
+            }
+
+            .dashboard-booking-image {
+                width: 85px;
+                height: 85px;
+            }
+
+            .dashboard-booking-actions {
+                grid-column: 2;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .profile-edit-grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .profile-field.full {
+                grid-column: auto;
+            }
+
+            .dashboard-panel {
+                padding: 18px;
+            }
+
+            .dashboard-heading-actions a {
+                padding: 10px 12px;
+                font-size: 10px;
+            }
+
+            .dashboard-modal-content {
+                padding: 19px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .dashboard-section,
+            .dashboard-modal-content,
+            .dashboard-toast {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo"><span class="logo-mark"><i class="fa-solid fa-earth-americas"></i></span>Voyage<span class="text-primary">Go</span></a>
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html">Home</a><a href="tourist.html">Destinations</a><a href="packages.html">Packages</a><a class="active" href="dashboard.html">Dashboard</a>
+            </nav>
+            <a class="btn btn-outline btn-sm" href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+        </div>
+    </header>
+
+
+    <!-- MOBILE DRAWER -->
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <aside class="mobile-drawer" id="mobileDrawer">
+
+        <div class="drawer-header">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-earth-americas text-primary"></i>
+                Voyage<span class="text-primary">Go</span>
+            </a>
+
+            <button type="button" id="closeDrawer" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <nav class="drawer-nav">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="tourist.html"><i class="fa-solid fa-map-location-dot"></i> Destinations</a>
+            <a href="packages.html"><i class="fa-solid fa-box"></i> Packages</a>
+            <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+            <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+            <a href="booking.html"><i class="fa-solid fa-suitcase"></i> My Booking</a>
+            <a href="dashboard.html" class="active"><i class="fa-solid fa-user"></i> Dashboard</a>
+        </nav>
+
+        <button type="button" class="btn btn-primary btn-block"
+            id="mobileLogoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- DASHBOARD -->
+
+    <main class="dashboard-page">
+
+        <div class="dashboard-container">
+
+            <div class="dashboard-heading">
+
+                <div>
+                    <div class="eyebrow">Your Travel Space</div>
+                    <h1>My Dashboard</h1>
+                    <p>Manage your account and keep track of your adventures.</p>
+                </div>
+
+                <div class="dashboard-heading-actions">
+                    <a href="tourist.html" class="dashboard-explore">
+                        <i class="fa-solid fa-compass"></i>
+                        Explore Destinations
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-layout">
+
+
+                <!-- SIDEBAR -->
+
+                <aside class="dashboard-sidebar">
+
+                    <div class="profile-mini">
+
+                        <div class="profile-avatar" id="sidebarAvatar">
+                            VG
+                        </div>
+
+                        <div class="profile-mini-info">
+                            <h3 id="sidebarName">Guest Traveller</h3>
+                            <p id="sidebarEmail">guest@example.com</p>
+                            <span class="profile-member">VOYAGEGO MEMBER</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-nav-title">Main Menu</div>
+
+                    <nav class="dashboard-nav" id="dashboardNav">
+
+                        <button type="button"
+                            class="active"
+                            data-section="overview">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Overview
+                        </button>
+
+                        <button type="button"
+                            data-section="bookings">
+                            <i class="fa-solid fa-suitcase-rolling"></i>
+                            My Bookings
+                            <span class="nav-count" id="navBookingCount">0</span>
+                        </button>
+
+                        <button type="button"
+                            data-section="profile">
+                            <i class="fa-regular fa-user"></i>
+                            My Profile
+                        </button>
+
+                        <button type="button"
+                            data-section="settings">
+                            <i class="fa-solid fa-gear"></i>
+                            Settings
+                        </button>
+
+                    </nav>
+
+
+                    <div class="dashboard-logout">
+                        <button type="button" id="logoutBtn">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            Logout
+                        </button>
+                    </div>
+
+                </aside>
+
+
+                <!-- DASHBOARD CONTENT -->
+
+                <div class="dashboard-main">
+
+
+                    <!-- =================================
+                         OVERVIEW
+                    ================================== -->
+
+                    <section class="dashboard-section active"
+                        id="section-overview">
+
+                        <div class="dashboard-welcome">
+
+                            <span class="welcome-label">
+                                <i class="fa-solid fa-sun"></i>
+                                YOUR TRAVEL JOURNEY
+                            </span>
+
+                            <h2>
+                                Welcome back,
+                                <span id="welcomeName">Traveller</span>!
+                            </h2>
+
+                            <p>
+                                Every journey begins with a dream.
+                                Explore new destinations and make your
+                                next travel memory unforgettable.
+                            </p>
+
+                        </div>
+
+
+                        <!-- STATISTICS -->
+
+                        <div class="dashboard-stats">
+
+                            <div class="dashboard-stat-card">
+
+                                <div class="dashboard-stat-top">
+                                    <div class="dashboard-stat-icon stat-red">
+                                        <i class="fa-solid fa-suitcase"></i>
+                                    </div>
+                                </div>
+
+                                <div class="stat-number" id="totalBookings">
+                                    0
+                                </div>
+
+                                <p>Total Bookings</p>
+
+                            </div>
+
+
+                            <div class="dashboard-stat-card">
+
+                                <div class="dashboard-stat-top">
+                                    <div class="dashboard-stat-icon stat-blue">
+                                        <i class="fa-regular fa-calendar-check"></i>
+                                    </div>
+                                </div>
+
+                                <div class="stat-number" id="upcomingTrips">
+                                    0
+                                </div>
+
+                                <p>Upcoming Trips</p>
+
+                            </div>
+
+
+                            <div class="dashboard-stat-card">
+
+                                <div class="dashboard-stat-top">
+                                    <div class="dashboard-stat-icon stat-green">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                    </div>
+                                </div>
+
+                                <div class="stat-number" id="completedTrips">
+                                    0
+                                </div>
+
+                                <p>Completed Trips</p>
+
+                            </div>
+
+
+                            <div class="dashboard-stat-card">
+
+                                <div class="dashboard-stat-top">
+                                    <div class="dashboard-stat-icon stat-purple">
+                                        <i class="fa-solid fa-wallet"></i>
+                                    </div>
+                                </div>
+
+                                <div class="stat-number" id="totalSpent">
+                                    ₹0
+                                </div>
+
+                                <p>Total Booking Value</p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RECENT BOOKINGS -->
+
+                        <div class="dashboard-content-header">
+
+                            <div>
+                                <h2>Recent Bookings</h2>
+                                <p>Your latest travel booking activity.</p>
+                            </div>
+
+                            <button type="button"
+                                class="dashboard-view-all"
+                                data-open-section="bookings">
+                                View All
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+
+                        </div>
+
+                        <div class="dashboard-booking-list"
+                            id="recentBookings"></div>
+
+                    </section>
+
+
+                    <!-- =================================
+                         MY BOOKINGS
+                    ================================== -->
+
+                    <section class="dashboard-section"
+                        id="section-bookings">
+
+                        <div class="dashboard-content-header">
+
+                            <div>
+                                <h2>My Bookings</h2>
+                                <p>View and manage all your travel bookings.</p>
+                            </div>
+
+                            <a href="tourist.html"
+                                class="dashboard-view-all"
+                                style="text-decoration:none;">
+                                <i class="fa-solid fa-plus"></i>
+                                New Booking
+                            </a>
+
+                        </div>
+
+
+                        <div class="booking-filters">
+
+                            <button type="button"
+                                class="booking-filter active"
+                                data-filter="all">
+                                All Bookings
+                            </button>
+
+                            <button type="button"
+                                class="booking-filter"
+                                data-filter="upcoming">
+                                Upcoming
+                            </button>
+
+                            <button type="button"
+                                class="booking-filter"
+                                data-filter="completed">
+                                Completed
+                            </button>
+
+                            <button type="button"
+                                class="booking-filter"
+                                data-filter="cancelled">
+                                Cancelled
+                            </button>
+
+                        </div>
+
+
+                        <div class="dashboard-booking-list"
+                            id="allBookings"></div>
+
+                    </section>
+
+
+                    <!-- =================================
+                         PROFILE
+                    ================================== -->
+
+                    <section class="dashboard-section"
+                        id="section-profile">
+
+                        <div class="dashboard-content-header">
+                            <div>
+                                <h2>My Profile</h2>
+                                <p>Manage your personal information.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="dashboard-panel profile-summary" aria-live="polite">
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:12px;">Your Account</h3>
+                            <p><strong>Name</strong> <span id="profileDisplayName"></span></p>
+                            <p><strong>Email</strong> <span id="profileDisplayEmail"></span></p>
+                            <p><strong>Phone</strong> <span id="profileDisplayPhone"></span></p>
+                        </div>
+
+                        <div class="dashboard-panel">
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:18px;">Edit Profile</h3>
+
+                            <form id="profileForm">
+
+                                <div class="profile-edit-grid">
+
+                                    <div class="profile-field">
+                                        <label for="profileName">
+                                            Full Name
+                                        </label>
+
+                                        <input type="text"
+                                            id="profileName"
+                                            required
+                                            minlength="2">
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileEmail">
+                                            Email Address
+                                        </label>
+
+                                        <input type="email"
+                                            id="profileEmail"
+                                            required
+                                            readonly>
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profilePhone">
+                                            Phone Number
+                                        </label>
+
+                                        <input type="tel"
+                                            id="profilePhone"
+                                            pattern="[0-9+\-\s()]{7,18}"
+                                            placeholder="+91 98765 43210">
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileCity">
+                                            City
+                                        </label>
+
+                                        <input type="text"
+                                            id="profileCity"
+                                            placeholder="Enter your city">
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileCountry">
+                                            Country
+                                        </label>
+
+                                        <input type="text"
+                                            id="profileCountry"
+                                            placeholder="Enter your country">
+                                    </div>
+
+                                    <div class="profile-field">
+                                        <label for="profileBirthday">
+                                            Date of Birth
+                                        </label>
+
+                                        <input type="date"
+                                            id="profileBirthday">
+                                    </div>
+
+                                    <div class="profile-field full">
+                                        <label for="profileBio">
+                                            About Me
+                                        </label>
+
+                                        <textarea id="profileBio"
+                                            placeholder="Tell us a little about yourself..."></textarea>
+                                    </div>
+
+                                </div>
+
+
+                                <button type="submit" class="profile-save-btn">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    Save Changes
+                                </button>
+
+                                <p class="profile-note">
+                                    Profile changes are saved in this browser.
+                                    Your email address is read-only in this demo.
+                                </p>
+
+                            </form>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- =================================
+                         SETTINGS
+                    ================================== -->
+
+                    <section class="dashboard-section"
+                        id="section-settings">
+
+                        <div class="dashboard-content-header">
+                            <div>
+                                <h2>Account Settings</h2>
+                                <p>Manage your preferences and account options.</p>
+                            </div>
+                        </div>
+
+
+                        <div class="dashboard-panel">
+
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:12px;">Email Notifications</h3>
+                            <label style="display:flex;align-items:center;gap:10px;margin-bottom:20px;font-size:12px;color:#747d8c;">
+                                <input type="checkbox" id="emailNotifications" checked>
+                                Receive booking updates and travel offers by email
+                            </label>
+
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:18px;">
+                                Travel Preferences
+                            </h3>
+
+                            <div class="profile-field">
+                                <label for="preferredTravel">
+                                    Preferred Travel Style
+                                </label>
+
+                                <select id="preferredTravel"
+                                    class="booking-input">
+
+                                    <option value="Adventure">Adventure</option>
+                                    <option value="Relaxation">Relaxation</option>
+                                    <option value="Family">Family Travel</option>
+                                    <option value="Luxury">Luxury Travel</option>
+                                    <option value="Cultural">Cultural Travel</option>
+
+                                </select>
+                            </div>
+
+                            <div class="profile-field">
+                                <label for="preferredCurrency">
+                                    Preferred Currency
+                                </label>
+
+                                <select id="preferredCurrency"
+                                    class="booking-input">
+
+                                    <option value="INR">INR – Indian Rupee</option>
+                                    <option value="USD">USD – US Dollar</option>
+                                    <option value="EUR">EUR – Euro</option>
+                                    <option value="GBP">GBP – British Pound</option>
+
+                                </select>
+                            </div>
+
+                            <div class="profile-field">
+                                <label for="preferredTheme">Theme</label>
+                                <select id="preferredTheme" class="booking-input">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                </select>
+                            </div>
+
+
+                            <button type="button"
+                                class="profile-save-btn"
+                                id="saveSettingsBtn">
+                                <i class="fa-solid fa-floppy-disk"></i>
+                                Save Preferences
+                            </button>
+
+                        </div>
+
+                        <div class="dashboard-panel">
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:18px;">Change Password</h3>
+                            <form id="changePasswordForm" class="profile-edit-grid">
+                                <div class="profile-field"><label for="currentPassword">Current Password</label><input type="password" id="currentPassword" autocomplete="current-password" required></div>
+                                <div class="profile-field"><label for="newPassword">New Password</label><input type="password" id="newPassword" minlength="8" autocomplete="new-password" required></div>
+                                <div class="profile-field"><label for="confirmNewPassword">Confirm New Password</label><input type="password" id="confirmNewPassword" minlength="8" autocomplete="new-password" required></div>
+                                <div class="profile-field"><button class="profile-save-btn" type="submit">Update Password</button></div>
+                            </form>
+                            <p class="profile-note">Password changes are stored locally for this frontend demo.</p>
+                        </div>
+
+
+                        <div class="dashboard-panel">
+
+                            <h3 style="font-size:14px;color:#2f3542;margin-bottom:10px;">
+                                Account Information
+                            </h3>
+
+                            <p style="font-size:11px;color:#9298a4;line-height:1.8;margin-bottom:17px;">
+                                This frontend demo does not provide server-side
+                                account security or account deletion. Logging out
+                                clears the current browser session.
+                            </p>
+
+                            <button type="button"
+                                class="profile-save-btn"
+                                id="settingsLogoutBtn"
+                                style="background:#fff;color:#e14c58;border:1px solid #f0cdd0;">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                                Logout from VoyageGo
+                            </button>
+
+                        </div>
+
+                    </section>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- BOOKING DETAILS MODAL -->
+
+    <div class="dashboard-modal" id="bookingDetailsModal">
+
+        <div class="dashboard-modal-content">
+
+            <div class="dashboard-modal-header">
+
+                <h3>Booking Details</h3>
+
+                <button type="button"
+                    class="dashboard-modal-close"
+                    id="closeBookingModal"
+                    aria-label="Close">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div id="bookingDetailsContent"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-about">
+
+                    <a href="index.html" class="logo footer-logo">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        Voyage<span class="text-primary">Go</span>
+                    </a>
+
+                    <p>
+                        Discover the world with VoyageGo. Explore amazing
+                        destinations and create memories that last forever.
+                    </p>
+
+                    <div class="footer-socials">
+
+                        <a href="https://www.instagram.com/"
+                            target="_blank" rel="noopener"
+                            aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="https://www.facebook.com/"
+                            target="_blank" rel="noopener"
+                            aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="https://x.com/"
+                            target="_blank" rel="noopener"
+                            aria-label="X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="https://www.youtube.com/"
+                            target="_blank" rel="noopener"
+                            aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-links">
+                    <h4>Explore</h4>
+                    <a href="index.html">Home</a>
+                    <a href="tourist.html">Destinations</a>
+                    <a href="packages.html">Packages</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+
+
+                <div class="footer-links">
+                    <h4>Customer Care</h4>
+                    <a href="dashboard.html">My Profile</a>
+                    <a href="booking.html">My Bookings</a>
+                    <a href="contact.html#faq">FAQs & Support</a>
+                    <a href="contact.html">Help Center</a>
+                    <a href="login.html">Login / Sign Up</a>
+                </div>
+
+
+                <div class="footer-links footer-contact">
+                    <h4>Get in Touch</h4>
+
+                    <a href="mailto:hello@voyagego.example">
+                        <i class="fa-regular fa-envelope"></i>
+                        hello@voyagego.example
+                    </a>
+
+                    <a href="tel:+919876543210">
+                        <i class="fa-solid fa-phone"></i>
+                        +91 98765 43210
+                    </a>
+
+                    <p>
+                        <i class="fa-solid fa-location-dot"></i>
+                        Chennai, Tamil Nadu, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    © <span data-current-year></span>
+                    VoyageGo. All Rights Reserved.
+                </p>
+
+                <div>
+                    <a href="terms.html">Privacy Policy</a>
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- LOCATION MODAL -->
+
+    <div class="modal" id="locationModal" aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button class="modal-close" type="button"
+                data-modal-close aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3>Select Your Location</h3>
+
+            <p>
+                Allow location access to find destinations near you.
+            </p>
+
+            <button type="button"
+                class="btn btn-primary btn-block"
+                id="detectLocation">
+                <i class="fa-solid fa-location-crosshairs"></i>
+                Detect My Location
+            </button>
+
+            <p id="locationMessage" aria-live="polite"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- LANGUAGE MODAL -->
+
+    <div class="modal" id="languageModal" aria-hidden="true">
+
+        <div class="modal-content">
+
+            <button class="modal-close" type="button"
+                data-modal-close aria-label="Close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3>Select Language</h3>
+
+            <div class="language-options">
+                <button type="button" data-language="en">English</button>
+                <button type="button" data-language="ta">தமிழ்</button>
+                <button type="button" data-language="hi">हिन्दी</button>
+                <button type="button" data-language="te">తెలుగు</button>
+                <button type="button" data-language="kn">ಕನ್ನಡ</button>
+                <button type="button" data-language="ml">മലയാളം</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div class="dashboard-toast"
+        id="dashboardToast"
+        role="status"
+        aria-live="polite"></div>
+
+
+    <!-- COMMON JAVASCRIPT -->
+
+    <script src="js/main.js"></script>
+
+
+    <!-- DASHBOARD JAVASCRIPT -->
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+</html>
